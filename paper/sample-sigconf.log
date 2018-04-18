@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.7.12)  18 APR 2018 14:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.7.12)  18 APR 2018 15:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1083,19 +1083,11 @@ Underfull \vbox (badness 4832) has occurred while \output is active []
 
 ]
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 144.
+(Font)              scaled to size 9.0pt on input line 143.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 144.
+(Font)              scaled to size 9.0pt on input line 143.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 146.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 170.
-
-Overfull \hbox (20.31543pt too wide) in paragraph at lines 170--171
-\T1/LinuxLibertineT-TLF/m/n/9 (-20) sched-ule ta-ble to end. The tran-si-tion i
-nto the \T1/LinuxLibertineT-TLF/m/it/9 (-20) SCHED-ULETABLE_STOPPED
- []
-
+(Font)              scaled to size 9.0pt on input line 145.
 Package epstopdf Info: Source file: <graphics/figure_st1.eps>
 (epstopdf)                    date: 2018-04-18 14:08:25
 (epstopdf)                    size: 504444 bytes
@@ -1104,30 +1096,24 @@ Package epstopdf Info: Source file: <graphics/figure_st1.eps>
 (epstopdf)                    size: 40340 bytes
 (epstopdf)             Command: <repstopdf --outfile=graphics/figure_st1-eps-co
 nverted-to.pdf graphics/figure_st1.eps>
-(epstopdf)             \includegraphics on input line 179.
+(epstopdf)             \includegraphics on input line 175.
 Package epstopdf Info: Output file is already uptodate.
+
 <graphics/figure_st1-eps-converted-to.pdf, id=151, 773.89125pt x 347.2975pt>
 File: graphics/figure_st1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use graphics/figure_st1-eps-converted-to.pdf>
 Package pdftex.def Info: graphics/figure_st1-eps-converted-to.pdf used on input
- line 179.
+ line 175.
 (pdftex.def)             Requested size: 247.65025pt x 111.13747pt.
 
-Overfull \hbox (6.50276pt too wide) in paragraph at lines 179--180
+Overfull \hbox (6.50276pt too wide) in paragraph at lines 175--176
  [][] 
  []
 
+[2.2 <./graphics/figure_st1-eps-converted-to.pdf>]
+Underfull \vbox (badness 2269) has occurred while \output is active []
 
-Underfull \vbox (badness 2653) has occurred while \output is active []
-
- [2.2 <./graphics/figure_st1-eps-converted-to.pdf>]
-Underfull \vbox (badness 2828) has occurred while \output is active []
-
-
-Underfull \vbox (badness 1184) has occurred while \output is active []
-
- [3.3]
 Package epstopdf Info: Source file: <graphics/figure_dst1.eps>
 (epstopdf)                    date: 2018-04-18 14:08:25
 (epstopdf)                    size: 361797 bytes
@@ -1137,18 +1123,34 @@ Package epstopdf Info: Source file: <graphics/figure_dst1.eps>
 (epstopdf)                    size: 30751 bytes
 (epstopdf)             Command: <repstopdf --outfile=graphics/figure_dst1-eps-c
 onverted-to.pdf graphics/figure_dst1.eps>
-(epstopdf)             \includegraphics on input line 241.
+(epstopdf)             \includegraphics on input line 237.
 Package epstopdf Info: Output file is already uptodate.
 
-<graphics/figure_dst1-eps-converted-to.pdf, id=204, 406.51875pt x 145.54375pt>
+<graphics/figure_dst1-eps-converted-to.pdf, id=191, 406.51875pt x 145.54375pt>
 File: graphics/figure_dst1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use graphics/figure_dst1-eps-converted-to.pdf>
 Package pdftex.def Info: graphics/figure_dst1-eps-converted-to.pdf used on inpu
-t line 241.
+t line 237.
 (pdftex.def)             Requested size: 182.93173pt x 65.49406pt.
 
-Overfull \hbox (10.04758pt too wide) in paragraph at lines 264--265
+Overfull \hbox (22.21495pt too wide) in paragraph at lines 246--247
+[]$\OML/nxlmi/m/it/9 Act[]$ \T1/LinuxLibertineT-TLF/m/n/9 (-20) refers to ac-ti
+ons of an ex-piry point:$\OML/nxlmi/m/it/9 Act[]\LMS/ntxsy/m/n/9 น\OML/nxlmi/m/
+it/9 ep[]\LMS/ntxsy/m/n/9 บ \U/ntxmia/m/it/9 = \OML/nxlmi/m/it/9 t[];  Act[]\LM
+S/ntxsy/m/n/9 น\OML/nxlmi/m/it/9 ep[]\LMS/ntxsy/m/n/9 บ \U/ntxmia/m/it/9 =
+ []
+
+
+Overfull \hbox (6.63623pt too wide) in paragraph at lines 248--249
+[]$\OML/nxlmi/m/it/9 Delay[] \OT1/LinuxLibertineT-TLF/m/n/9 (-20) :$ \T1/LinuxL
+ibertineT-TLF/m/n/9 (-20) the $\OML/nxlmi/m/it/9 Delay$ \T1/LinuxLibertineT-TLF
+/m/n/9 (-20) of ex-piry points is de-fined by $\OML/nxlmi/m/it/9 Delay[]\LMS/nt
+xsy/m/n/9 น\OML/nxlmi/m/it/9 ep[]\LMS/ntxsy/m/n/9 บ \U/ntxmia/m/it/9 =
+ []
+
+[3.3 <./graphics/figure_dst1-eps-converted-to.pdf>]
+Overfull \hbox (10.04758pt too wide) in paragraph at lines 260--261
 []\T1/LinuxLibertineT-TLF/m/n/9 (-20) For ex-am-ple, if we are test-ing an in-s
 tance of task $\LMS/ntxsy/m/n/9 น\OML/nxlmi/m/it/9 e\LMS/ntxsy/m/n/9 น\OML/nxlm
 i/m/it/9 t\LMS/ntxsy/m/n/9 บ\OML/nxlmi/m/it/9 ; d\LMS/ntxsy/m/n/9 น\OML/nxlmi/m
@@ -1157,8 +1159,10 @@ i/m/it/9 t\LMS/ntxsy/m/n/9 บ\OML/nxlmi/m/it/9 ; d\LMS/ntxsy/m/n/9 น\OML/nxlmi/m
 t\LMS/ntxsy/m/n/9 บบ$\T1/LinuxLibertineT-TLF/m/n/9 (-20) ,
  []
 
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
+(Font)              scaled to size 9.0pt on input line 262.
 
-Overfull \hbox (8.90875pt too wide) detected at line 274
+Overfull \hbox (8.90875pt too wide) detected at line 270
 \OML/nxlmi/m/it/9 ^^X[]\LMS/ntxsy/m/n/9 นน\OML/nxlmi/m/it/9 ep; r\LMS/ntxsy/m/n
 /9 บบ \U/ntxmia/m/it/9 = []
  []
@@ -1171,17 +1175,17 @@ Package epstopdf Info: Source file: <graphics/figure_prf.eps>
 (epstopdf)                    size: 20240 bytes
 (epstopdf)             Command: <repstopdf --outfile=graphics/figure_prf-eps-co
 nverted-to.pdf graphics/figure_prf.eps>
-(epstopdf)             \includegraphics on input line 299.
+(epstopdf)             \includegraphics on input line 295.
 Package epstopdf Info: Output file is already uptodate.
-<graphics/figure_prf-eps-converted-to.pdf, id=206, 756.8275pt x 258.9675pt>
+<graphics/figure_prf-eps-converted-to.pdf, id=221, 756.8275pt x 258.9675pt>
 File: graphics/figure_prf-eps-converted-to.pdf Graphic file (type pdf)
 
 <use graphics/figure_prf-eps-converted-to.pdf>
 Package pdftex.def Info: graphics/figure_prf-eps-converted-to.pdf used on input
- line 299.
+ line 295.
 (pdftex.def)             Requested size: 242.18974pt x 82.87128pt.
 
-Overfull \hbox (1.04225pt too wide) in paragraph at lines 299--300
+Overfull \hbox (1.04225pt too wide) in paragraph at lines 295--296
  [][] 
  []
 
@@ -1194,14 +1198,14 @@ Package epstopdf Info: Source file: <graphics/figure_dst2.eps>
 (epstopdf)                    size: 26271 bytes
 (epstopdf)             Command: <repstopdf --outfile=graphics/figure_dst2-eps-c
 onverted-to.pdf graphics/figure_dst2.eps>
-(epstopdf)             \includegraphics on input line 313.
+(epstopdf)             \includegraphics on input line 309.
 Package epstopdf Info: Output file is already uptodate.
-<graphics/figure_dst2-eps-converted-to.pdf, id=211, 324.21124pt x 116.435pt>
+<graphics/figure_dst2-eps-converted-to.pdf, id=226, 324.21124pt x 116.435pt>
 File: graphics/figure_dst2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use graphics/figure_dst2-eps-converted-to.pdf>
 Package pdftex.def Info: graphics/figure_dst2-eps-converted-to.pdf used on inpu
-t line 313.
+t line 309.
 (pdftex.def)             Requested size: 145.8937pt x 52.39525pt.
 Package epstopdf Info: Source file: <graphics/figure_mrf.eps>
 (epstopdf)                    date: 2018-04-18 14:08:25
@@ -1211,28 +1215,29 @@ Package epstopdf Info: Source file: <graphics/figure_mrf.eps>
 (epstopdf)                    size: 23493 bytes
 (epstopdf)             Command: <repstopdf --outfile=graphics/figure_mrf-eps-co
 nverted-to.pdf graphics/figure_mrf.eps>
-(epstopdf)             \includegraphics on input line 319.
+(epstopdf)             \includegraphics on input line 315.
 Package epstopdf Info: Output file is already uptodate.
 
-<graphics/figure_mrf-eps-converted-to.pdf, id=212, 757.83125pt x 275.0275pt>
+<graphics/figure_mrf-eps-converted-to.pdf, id=227, 757.83125pt x 275.0275pt>
 File: graphics/figure_mrf-eps-converted-to.pdf Graphic file (type pdf)
 
 <use graphics/figure_mrf-eps-converted-to.pdf>
 Package pdftex.def Info: graphics/figure_mrf-eps-converted-to.pdf used on input
- line 319.
+ line 315.
 (pdftex.def)             Requested size: 246.29224pt x 89.38287pt.
 
-Overfull \hbox (11.41475pt too wide) in paragraph at lines 319--320
+Overfull \hbox (11.41475pt too wide) in paragraph at lines 315--316
  [][] 
  []
 
-[4.4 <./graphics/figure_dst1-eps-converted-to.pdf>]
-Overfull \hbox (3.28233pt too wide) in paragraph at lines 325--326
+
+Overfull \hbox (3.28233pt too wide) in paragraph at lines 321--322
 [][][]\T1/LinuxLibertineT-TLF/m/it/9 (-20) Definition 4.4. []\T1/LinuxLibertine
 T-TLF/m/n/9 (-20) For a DST, the max-i-mal re-quest func-tion $\OML/nxlmi/m/it/
 9 mrf[]\LMS/ntxsy/m/n/9 น\OML/nxlmi/m/it/9 ^^R\LMS/ntxsy/m/n/9 บ$
  []
 
+[4.4 <./graphics/figure_prf-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <graphics/figure_srf.eps>
 (epstopdf)                    date: 2018-04-18 14:08:25
 (epstopdf)                    size: 333422 bytes
@@ -1241,20 +1246,20 @@ Package epstopdf Info: Source file: <graphics/figure_srf.eps>
 (epstopdf)                    size: 20328 bytes
 (epstopdf)             Command: <repstopdf --outfile=graphics/figure_srf-eps-co
 nverted-to.pdf graphics/figure_srf.eps>
-(epstopdf)             \includegraphics on input line 343.
+(epstopdf)             \includegraphics on input line 339.
 Package epstopdf Info: Output file is already uptodate.
-<graphics/figure_srf-eps-converted-to.pdf, id=248, 770.88pt x 244.915pt>
+
+<graphics/figure_srf-eps-converted-to.pdf, id=264, 770.88pt x 244.915pt>
 File: graphics/figure_srf-eps-converted-to.pdf Graphic file (type pdf)
 
 <use graphics/figure_srf-eps-converted-to.pdf>
 Package pdftex.def Info: graphics/figure_srf-eps-converted-to.pdf used on input
- line 343.
+ line 339.
 (pdftex.def)             Requested size: 238.97034pt x 75.92285pt.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
-(Font)              scaled to size 9.0pt on input line 362.
- [5.5 <./graphics/figure_prf-eps-converted-to.pdf> <./graphics/figure_dst2-eps-
-converted-to.pdf> <./graphics/figure_mrf-eps-converted-to.pdf> <./graphics/figu
-re_srf-eps-converted-to.pdf>]
+(Font)              scaled to size 9.0pt on input line 358.
+ [5.5 <./graphics/figure_dst2-eps-converted-to.pdf> <./graphics/figure_mrf-eps-
+converted-to.pdf> <./graphics/figure_srf-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <graphics/figure_combina2.eps>
 (epstopdf)                    date: 2018-04-18 14:08:25
 (epstopdf)                    size: 333117 bytes
@@ -1264,18 +1269,18 @@ pdf>
 (epstopdf)                    size: 20827 bytes
 (epstopdf)             Command: <repstopdf --outfile=graphics/figure_combina2-e
 ps-converted-to.pdf graphics/figure_combina2.eps>
-(epstopdf)             \includegraphics on input line 404.
+(epstopdf)             \includegraphics on input line 400.
 Package epstopdf Info: Output file is already uptodate.
 
-<graphics/figure_combina2-eps-converted-to.pdf, id=321, 716.6775pt x 130.4875pt
+<graphics/figure_combina2-eps-converted-to.pdf, id=325, 716.6775pt x 130.4875pt
 >
 File: graphics/figure_combina2-eps-converted-to.pdf Graphic file (type pdf)
  <use graphics/figure_combina2-eps-converted-to.pdf>
 Package pdftex.def Info: graphics/figure_combina2-eps-converted-to.pdf used on 
-input line 404.
+input line 400.
 (pdftex.def)             Requested size: 243.66713pt x 44.36516pt.
 
-Overfull \hbox (3.0079pt too wide) in paragraph at lines 404--405
+Overfull \hbox (3.0079pt too wide) in paragraph at lines 400--401
  [][] 
  []
 
@@ -1288,18 +1293,18 @@ pdf>
 (epstopdf)                    size: 20843 bytes
 (epstopdf)             Command: <repstopdf --outfile=graphics/figure_combina1-e
 ps-converted-to.pdf graphics/figure_combina1.eps>
-(epstopdf)             \includegraphics on input line 410.
+(epstopdf)             \includegraphics on input line 406.
 Package epstopdf Info: Output file is already uptodate.
 
-<graphics/figure_combina1-eps-converted-to.pdf, id=322, 735.74875pt x 131.49126
+<graphics/figure_combina1-eps-converted-to.pdf, id=326, 735.74875pt x 131.49126
 pt>
 File: graphics/figure_combina1-eps-converted-to.pdf Graphic file (type pdf)
  <use graphics/figure_combina1-eps-converted-to.pdf>
 Package pdftex.def Info: graphics/figure_combina1-eps-converted-to.pdf used on 
-input line 410.
+input line 406.
 (pdftex.def)             Requested size: 250.15126pt x 44.70642pt.
 
-Overfull \hbox (9.49203pt too wide) in paragraph at lines 410--411
+Overfull \hbox (9.49203pt too wide) in paragraph at lines 406--407
  [][] 
  []
 
@@ -1312,37 +1317,36 @@ f>
 (epstopdf)                    size: 46406 bytes
 (epstopdf)             Command: <repstopdf --outfile=graphics/figure_3parts-eps
 -converted-to.pdf graphics/figure_3parts.eps>
-(epstopdf)             \includegraphics on input line 428.
+(epstopdf)             \includegraphics on input line 424.
 Package epstopdf Info: Output file is already uptodate.
-<graphics/figure_3parts-eps-converted-to.pdf, id=327, 722.7pt x 330.23375pt>
+<graphics/figure_3parts-eps-converted-to.pdf, id=331, 722.7pt x 330.23375pt>
 File: graphics/figure_3parts-eps-converted-to.pdf Graphic file (type pdf)
 
 <use graphics/figure_3parts-eps-converted-to.pdf>
 Package pdftex.def Info: graphics/figure_3parts-eps-converted-to.pdf used on in
-put line 428.
+put line 424.
 (pdftex.def)             Requested size: 216.81166pt x 99.07088pt.
  [6.6 <./graphics/figure_combina2-eps-converted-to.pdf> <./graphics/figure_comb
-ina1-eps-converted-to.pdf>]
+ina1-eps-converted-to.pdf> <./graphics/figure_3parts-eps-converted-to.pdf>]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 474.
+(Font)              scaled to size 7.3pt on input line 470.
 
-Overfull \hbox (10.45161pt too wide) in paragraph at lines 476--477
+Overfull \hbox (10.45161pt too wide) in paragraph at lines 472--473
 []\T1/LinuxLibertineT-TLF/m/n/9 (-20) : Cal-cu-lat-ing the up-per bound
  []
 
 
-Overfull \hbox (3.75314pt too wide) in paragraph at lines 481--482
+Overfull \hbox (3.75314pt too wide) in paragraph at lines 477--478
 []\T1/LinuxLibertineT-TLF/m/n/9 (-20) : Ver-i-fy-ing whether
  []
 
 
-Overfull \hbox (5.26093pt too wide) in paragraph at lines 485--485
+Overfull \hbox (5.26093pt too wide) in paragraph at lines 481--481
 [] 
  []
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 496.
-[7.7 <./graphics/figure_3parts-eps-converted-to.pdf>]
+put line 492.
 Package epstopdf Info: Source file: <graphics/figure_dst3.eps>
 (epstopdf)                    date: 2018-04-18 14:08:25
 (epstopdf)                    size: 337518 bytes
@@ -1352,18 +1356,21 @@ Package epstopdf Info: Source file: <graphics/figure_dst3.eps>
 (epstopdf)                    size: 21990 bytes
 (epstopdf)             Command: <repstopdf --outfile=graphics/figure_dst3-eps-c
 onverted-to.pdf graphics/figure_dst3.eps>
-(epstopdf)             \includegraphics on input line 551.
+(epstopdf)             \includegraphics on input line 547.
 Package epstopdf Info: Output file is already uptodate.
-
-<graphics/figure_dst3-eps-converted-to.pdf, id=428, 247.92625pt x 75.28125pt>
+<graphics/figure_dst3-eps-converted-to.pdf, id=421, 247.92625pt x 75.28125pt>
 File: graphics/figure_dst3-eps-converted-to.pdf Graphic file (type pdf)
 
 <use graphics/figure_dst3-eps-converted-to.pdf>
 Package pdftex.def Info: graphics/figure_dst3-eps-converted-to.pdf used on inpu
-t line 551.
+t line 547.
 (pdftex.def)             Requested size: 99.16873pt x 30.11195pt.
- [8.8 <./graphics/figure_dst3-eps-converted-to.pdf>]
-Overfull \hbox (15.56401pt too wide) in paragraph at lines 643--644
+
+Underfull \vbox (badness 2772) has occurred while \output is active []
+
+ [7.7]
+[8.8 <./graphics/figure_dst3-eps-converted-to.pdf>]
+Overfull \hbox (15.56401pt too wide) in paragraph at lines 639--640
 []\T1/LinuxLibertineT-TLF/m/n/9 (-20) If the schedu-la-bil-ity re-sult ob-taine
 d by our method is non-schedulable,
  []
@@ -1377,18 +1384,18 @@ Package epstopdf Info: Source file: <graphics/figure_widen.eps>
 (epstopdf)                    size: 26865 bytes
 (epstopdf)             Command: <repstopdf --outfile=graphics/figure_widen-eps-
 converted-to.pdf graphics/figure_widen.eps>
-(epstopdf)             \includegraphics on input line 647.
+(epstopdf)             \includegraphics on input line 643.
 Package epstopdf Info: Output file is already uptodate.
 
-<graphics/figure_widen-eps-converted-to.pdf, id=481, 561.09625pt x 250.9375pt>
+<graphics/figure_widen-eps-converted-to.pdf, id=483, 561.09625pt x 250.9375pt>
 File: graphics/figure_widen-eps-converted-to.pdf Graphic file (type pdf)
 
 <use graphics/figure_widen-eps-converted-to.pdf>
 Package pdftex.def Info: graphics/figure_widen-eps-converted-to.pdf used on inp
-ut line 647.
+ut line 643.
 (pdftex.def)             Requested size: 252.49098pt x 112.92082pt.
 
-Overfull \hbox (11.34349pt too wide) in paragraph at lines 647--648
+Overfull \hbox (11.34349pt too wide) in paragraph at lines 643--644
  [][] 
  []
 
@@ -1396,7 +1403,6 @@ Overfull \hbox (11.34349pt too wide) in paragraph at lines 647--648
 LaTeX Info: Redefining \tempurl on input line 69.
 LaTeX Info: Redefining \tempurl on input line 89.
 LaTeX Info: Redefining \tempurl on input line 104.
- [9.9 <./graphics/figure_widen-eps-converted-to.pdf>]
 LaTeX Info: Redefining \tempurl on input line 118.
 LaTeX Info: Redefining \tempurl on input line 133.
 LaTeX Info: Redefining \tempurl on input line 160.
@@ -1409,26 +1415,24 @@ LaTeX Info: Redefining \tempurl on input line 268.
 LaTeX Info: Redefining \tempurl on input line 283.
 LaTeX Info: Redefining \tempurl on input line 297.
 LaTeX Info: Redefining \tempurl on input line 313.
-)
-[10.10
+) [9.9 <./graphics/figure_widen-eps-converted-to.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 657.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 657.
 
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 661.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 661.
- (./sample-sigconf.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 661.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 661.
+(./sample-sigconf.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 657.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 657.
 Package rerunfilecheck Info: File `sample-sigconf.out' has not changed.
 (rerunfilecheck)             Checksum: 0A51D0BD7D0D4A745969D8C74EED5FB7;4019.
  ) 
 Here is how much of TeX's memory you used:
- 18976 strings out of 492995
- 289606 string characters out of 6132704
- 405952 words of memory out of 5000000
+ 18962 strings out of 492995
+ 289285 string characters out of 6132704
+ 406949 words of memory out of 5000000
  21452 multiletter control sequences out of 15000+600000
- 198863 words of font info for 435 fonts, out of 8000000 for 9000
+ 197308 words of font info for 427 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 60i,22n,94p,2060b,920s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,22n,94p,2060b,922s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/libertine/lbtn_ncsllp.enc
 }{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/newtx/libertinealt.enc}{/u
 sr/local/texlive/2017/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}{/us
@@ -1458,10 +1462,10 @@ pe1/public/txfonts/txsya.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/pu
 blic/newtx/txsys.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/new
 tx/zxlr.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/newtx/zxlri.
 pfb>
-Output written on sample-sigconf.pdf (10 pages, 987155 bytes).
+Output written on sample-sigconf.pdf (9 pages, 984984 bytes).
 PDF statistics:
- 664 PDF objects out of 1000 (max. 8388607)
- 509 compressed objects within 6 object streams
- 121 named destinations out of 1000 (max. 500000)
+ 659 PDF objects out of 1000 (max. 8388607)
+ 505 compressed objects within 6 object streams
+ 120 named destinations out of 1000 (max. 500000)
  56580 words of extra memory for PDF output out of 61914 (max. 10000000)
 

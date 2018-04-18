@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex sample-sigconf"] 1524032819 "sample-sigconf.aux" "sample-sigconf.bbl" "sample-sigconf" 1524032822
+["bibtex sample-sigconf"] 1524036747 "sample-sigconf.aux" "sample-sigconf.bbl" "sample-sigconf" 1524036750
   "./ACM-Reference-Format.bst" 1524031705 83503 ad27b046f63a320eeacd69676e56acdb ""
   "sample-bibliography.bib" 1524031705 70024 e62b96b87635f35e13819ead1492bb86 ""
-  "sample-sigconf.aux" 1524032821 14171 0c71c4d8eeff58653299cbdd8c6b14b2 ""
+  "sample-sigconf.aux" 1524036749 14155 251ce5eaf5e14279230f71b156fba5aa ""
   (generated)
-  "sample-sigconf.bbl"
   "sample-sigconf.blg"
-["pdflatex"] 1524032819 "sample-sigconf.tex" "sample-sigconf.pdf" "sample-sigconf" 1524032822
+  "sample-sigconf.bbl"
+["pdflatex"] 1524036747 "sample-sigconf.tex" "sample-sigconf.pdf" "sample-sigconf" 1524036750
   "/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc" 1490133665 2921 8ca0eb0831f9bc5da080d3697cfe67bf ""
   "/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc" 1490133665 2933 9ad527ce78d7c5fa0a642dead095f172 ""
@@ -251,12 +251,12 @@
   "graphics/figure_srf.eps" 1524031705 333422 a0635966e94f9450717789386ed13d0d ""
   "graphics/figure_st1.eps" 1524031705 504444 fba3663bf7a70a177336f2e726ae4b86 ""
   "graphics/figure_widen.eps" 1524031705 366929 58965ed9727b5d458d87b0941627feaa ""
-  "sample-sigconf.aux" 1524032821 14171 0c71c4d8eeff58653299cbdd8c6b14b2 ""
-  "sample-sigconf.bbl" 1524032819 13067 c568d08b4d7cbb1d7cb3b815a62a8bec "bibtex sample-sigconf"
-  "sample-sigconf.out" 1524032821 4019 0a51d0bd7d0d4a745969d8c74eed5fb7 ""
-  "sample-sigconf.tex" 1524032813 66338 ba5cb98aae832c78333bb84cde2797f4 ""
+  "sample-sigconf.aux" 1524036749 14155 251ce5eaf5e14279230f71b156fba5aa ""
+  "sample-sigconf.bbl" 1524036747 13067 c568d08b4d7cbb1d7cb3b815a62a8bec "bibtex sample-sigconf"
+  "sample-sigconf.out" 1524036749 4019 0a51d0bd7d0d4a745969d8c74eed5fb7 ""
+  "sample-sigconf.tex" 1524036744 65815 2960fde2bdc537c378fed8ee7a72e521 ""
   (generated)
-  "sample-sigconf.log"
-  "sample-sigconf.pdf"
   "sample-sigconf.aux"
+  "sample-sigconf.log"
   "sample-sigconf.out"
+  "sample-sigconf.pdf"
