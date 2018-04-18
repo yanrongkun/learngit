@@ -15,12 +15,6 @@ A bad cross reference---entry "DBLP:conf/rtss/Baruah16"
 refers to entry "DBLP:conf/rtss/2016", which doesn't exist
 A bad cross reference---entry "DBLP:conf/isorc/AnssiTKGT11"
 refers to entry "DBLP:conf/isorc/2011", which doesn't exist
-A bad cross reference---entry "DBLP:conf/tase/PengHSG13"
-refers to entry "DBLP:conf/tase/2013", which doesn't exist
-A bad cross reference---entry "DBLP:conf/icfem/HuangFHQH13"
-refers to entry "DBLP:conf/icfem/2013", which doesn't exist
-A bad cross reference---entry "DBLP:conf/tase/ZhuLSWZ13"
-refers to entry "DBLP:conf/tase/2013", which doesn't exist
 A bad cross reference---entry "DBLP:conf/etfa/HatvaniB15"
 refers to entry "DBLP:conf/etfa/2015", which doesn't exist
 A bad cross reference---entry "DBLP:conf/racs/YoonR14"
@@ -31,9 +25,7 @@ A bad cross reference---entry "DBLP:conf/rtss/Lehoczky90"
 refers to entry "DBLP:conf/rtss/1990", which doesn't exist
 Warning--I didn't find a database entry for "DBLP:conf/isorc/2011"
 Warning--I didn't find a database entry for "DBLP:conf/dasip/2016"
-Warning--I didn't find a database entry for "DBLP:conf/tase/2013"
 Warning--I didn't find a database entry for "DBLP:conf/etfa/2015"
-Warning--I didn't find a database entry for "DBLP:conf/icfem/2013"
 Warning--I didn't find a database entry for "DBLP:conf/racs/2014"
 Warning--I didn't find a database entry for "DBLP:conf/rtas/2011"
 Warning--I didn't find a database entry for "DBLP:conf/rtss/1990"
@@ -49,59 +41,53 @@ Warning--empty publisher in DBLP:conf/rtss/Baruah16
 Warning--empty address in DBLP:conf/rtss/Baruah16
 Warning--empty publisher in DBLP:conf/etfa/HatvaniB15
 Warning--empty address in DBLP:conf/etfa/HatvaniB15
-Warning--empty publisher in DBLP:conf/icfem/HuangFHQH13
-Warning--empty address in DBLP:conf/icfem/HuangFHQH13
 Warning--empty publisher in DBLP:conf/rtss/Lehoczky90
 Warning--empty address in DBLP:conf/rtss/Lehoczky90
-Warning--empty publisher in DBLP:conf/tase/PengHSG13
-Warning--empty address in DBLP:conf/tase/PengHSG13
 Warning--empty publisher in DBLP:conf/rtas/StiggeEGY11
 Warning--empty address in DBLP:conf/rtas/StiggeEGY11
 Warning--empty publisher in DBLP:conf/dasip/WangCM16
 Warning--empty address in DBLP:conf/dasip/WangCM16
 Warning--empty publisher in DBLP:conf/racs/YoonR14
 Warning--empty address in DBLP:conf/racs/YoonR14
-Warning--empty publisher in DBLP:conf/tase/ZhuLSWZ13
-Warning--empty address in DBLP:conf/tase/ZhuLSWZ13
-You've used 23 entries,
+You've used 20 entries,
             5733 wiz_defined-function locations,
-            1655 strings with 22901 characters,
-and the built_in function-call counts, 27160 in all, are:
-= -- 3349
-> -- 962
+            1628 strings with 21916 characters,
+and the built_in function-call counts, 23120 in all, are:
+= -- 2939
+> -- 784
 < -- 0
-+ -- 323
-- -- 336
-* -- 1895
-:= -- 2754
-add.period$ -- 114
-call.type$ -- 23
-change.case$ -- 159
-chr.to.int$ -- 23
-cite$ -- 43
-duplicate$ -- 2412
-empty$ -- 1681
-format.name$ -- 408
-if$ -- 6436
++ -- 262
+- -- 280
+* -- 1582
+:= -- 2337
+add.period$ -- 99
+call.type$ -- 20
+change.case$ -- 133
+chr.to.int$ -- 20
+cite$ -- 34
+duplicate$ -- 2041
+empty$ -- 1426
+format.name$ -- 340
+if$ -- 5506
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 80
-newline$ -- 271
-num.names$ -- 186
-pop$ -- 871
+missing$ -- 65
+newline$ -- 241
+num.names$ -- 162
+pop$ -- 713
 preamble$ -- 1
-purify$ -- 364
+purify$ -- 311
 quote$ -- 0
-skip$ -- 883
+skip$ -- 748
 stack$ -- 0
-substring$ -- 2084
-swap$ -- 248
+substring$ -- 1786
+swap$ -- 210
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 567
-warning$ -- 20
-while$ -- 191
+type$ -- 477
+warning$ -- 14
+while$ -- 170
 width$ -- 0
-write$ -- 473
-(There were 11 error messages)
+write$ -- 416
+(There were 8 error messages)

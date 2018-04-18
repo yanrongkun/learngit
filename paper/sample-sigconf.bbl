@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{23}
+\begin{thebibliography}{20}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -161,22 +161,6 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Huang, Ferreira, He, Qin, and He}{Huang
-  et~al\mbox{.}}{2013}]%
-        {DBLP:conf/icfem/HuangFHQH13}
-\bibfield{author}{\bibinfo{person}{Yanhong Huang},
-  \bibinfo{person}{Jo{\~{a}}o~F. Ferreira}, \bibinfo{person}{Guanhua He},
-  \bibinfo{person}{Shengchao Qin}, {and} \bibinfo{person}{Jifeng He}.}
-  \bibinfo{year}{2013}\natexlab{}.
-\newblock \showarticletitle{Deadline Analysis of {AUTOSAR} {OS} Periodic Tasks
-  in the Presence of Interrupts}. In \bibinfo{booktitle}{\emph{{ICFEM} 2013,
-  October 29 - November 1, 2013, Proceedings}}. \bibinfo{pages}{165--181}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1007/978-3-642-41202-8_12}
-\showDOI{\tempurl}
-
-
 \bibitem[\protect\citeauthoryear{INFINEON}{INFINEON}{2011}]%
         {infineon.org}
 \bibfield{author}{\bibinfo{person}{INFINEON}.} \bibinfo{year}{2011}\natexlab{}.
@@ -238,21 +222,6 @@
 \bibfield{author}{\bibinfo{person}{OSEK}.} \bibinfo{year}{2005}\natexlab{}.
 \newblock \bibinfo{title}{OSEK/VDX Operating System Specification 2.2.3}.
 \newblock
-
-
-\bibitem[\protect\citeauthoryear{Peng, Huang, Su, and Guo}{Peng
-  et~al\mbox{.}}{2013}]%
-        {DBLP:conf/tase/PengHSG13}
-\bibfield{author}{\bibinfo{person}{Yunhui Peng}, \bibinfo{person}{Yanhong
-  Huang}, \bibinfo{person}{Ting Su}, {and} \bibinfo{person}{Jian Guo}.}
-  \bibinfo{year}{2013}\natexlab{}.
-\newblock \showarticletitle{Modeling and Verification of {AUTOSAR} {OS} and
-  {EMS} Application}. In \bibinfo{booktitle}{\emph{{TASE} 2013, 1-3 July 2013,
-  Birmingham, {UK}}}. \bibinfo{pages}{37--44}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1109/TASE.2013.13}
-\showDOI{\tempurl}
 
 
 \bibitem[\protect\citeauthoryear{Stigge, Ekberg, Guan, and Yi}{Stigge
@@ -342,22 +311,6 @@
 \newblock
 \urldef\tempurl%
 \url{https://doi.org/10.1016/j.sysarc.2016.08.003}
-\showDOI{\tempurl}
-
-
-\bibitem[\protect\citeauthoryear{Zhu, Liu, Shi, Wang, and Zhu}{Zhu
-  et~al\mbox{.}}{2013}]%
-        {DBLP:conf/tase/ZhuLSWZ13}
-\bibfield{author}{\bibinfo{person}{Longfei Zhu}, \bibinfo{person}{Peng Liu},
-  \bibinfo{person}{Jianqi Shi}, \bibinfo{person}{Zheng Wang}, {and}
-  \bibinfo{person}{Huibiao Zhu}.} \bibinfo{year}{2013}\natexlab{}.
-\newblock \showarticletitle{A Timing Verification Framework for {AUTOSAR} {OS}
-  Component Development Based on Real-Time Maude}. In
-  \bibinfo{booktitle}{\emph{{TASE} 2013, 1-3 July 2013, Birmingham, {UK}}}.
-  \bibinfo{pages}{29--36}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1109/TASE.2013.12}
 \showDOI{\tempurl}
 
 
