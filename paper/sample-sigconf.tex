@@ -49,11 +49,11 @@
 
 % These commands are optional
 %\acmBooktitle{Transactions of the ACM Woodstock conference}
-\editor{Rongkun Yan}
-\editor{Jian Guo}
-\editor{Xiaoran Zhu}
-\editor{Xin Li}
-\editor{Jizheng Ding}
+%\editor{Rongkun Yan}
+%\editor{Jian Guo}
+%\editor{Xiaoran Zhu}
+%\editor{Xin Li}
+%\editor{Jizheng Ding}
 
 
 \begin{document}
@@ -66,32 +66,32 @@
   %\texttt{acmart.pdf} document}
 
 
-\author{Rongkun Yan}
-\affiliation{%
-  \institution{Soft/Hardware Co-design Engineering Research Center, East China Normal University}
-}
-\email{51164500085@stu.ecnu.edu.cn}
+%\author{Rongkun Yan}
+%\affiliation{%
+%  \institution{Soft/Hardware Co-design Engineering Research Center, East China Normal University}
+%}
+%\email{51164500085@stu.ecnu.edu.cn}
 
-\author{Jian Guo}
-\affiliation{%
-  \institution{Soft/Hardware Co-design Engineering Research Center, East China Normal University}
-}
-\email{jguo@sei.ecnu.edu.cn}
+%\author{Jian Guo}
+%\affiliation{%
+%  \institution{Soft/Hardware Co-design Engineering Research Center, East China Normal University}
+%}
+%\email{jguo@sei.ecnu.edu.cn}
 
-\author{Xiaoran Zhu}
-\affiliation{%
-  \institution{National Trusted Embedded Software Engineering Technology Research Center, East China Normal University}
-}
+%\author{Xiaoran Zhu}
+%\affiliation{%
+%  \institution{National Trusted Embedded Software Engineering Technology Research Center, East China Normal University}
+%}
 
-\author{Xin Li}
-\affiliation{%
-  \institution{Shanghai Key Laboratory of Trustworthy Computing, East China Normal University}
-}
+%\author{Xin Li}
+%\affiliation{%
+%  \institution{Shanghai Key Laboratory of Trustworthy Computing, East China Normal University}
+%}
 
-\author{Jizheng Ding}
-\affiliation{%
-  \institution{Soft/Hardware Co-design Engineering Research Center, East China Normal University}
-}
+%\author{Jizheng Ding}
+%\affiliation{%
+%  \institution{Soft/Hardware Co-design Engineering Research Center, East China Normal University}
+%}
 
 
 
@@ -157,14 +157,14 @@ AUTOSAR operating system offers at least one system counter. Counters aim to kee
 
 The schedule table mechanism is a new concept introduced in AUTOSAR which could statically define the pattern of tasks activation. Each schedule table maps to a specific counter and encapsulates a predefined set of expiry points. An expiry point contains one or more actions, which can be either activating a task or setting an event. Each expiry point has a unique offset in ticks from the start of the schedule table. In addition, a schedule table has a specific duration which defines the modulus of the schedule table.
 
-At runtime, a schedule table is driven by a counter. One tick on the counter corresponds to one tick on schedule table. Since a schedule table start, if the increment of the counter equals to an offset of an expiry point, the actions of this expiry point will be executed. AUTOSAR also provides three states of schedule table. We illustrate these three states and the transitions between them in Figure \ref{figure_state_st} which we get from \cite{autosar}.
+At runtime, a schedule table is driven by a counter. One tick on the counter corresponds to one tick on schedule table. Since a schedule table start, if the increment of the counter equals to an offset of an expiry point, the actions of this expiry point will be executed. AUTOSAR also provides three states of schedule table. %We illustrate these three states and the transitions between them in Figure \ref{figure_state_st} which we get from \cite{autosar}.
 
-\begin{figure}[t]
-\centering
-\includegraphics[scale=.39]{graphics/Figure_state_st.eps}
-\caption{Three states of schedule table and the transitions between them.}
-\label{figure_state_st}
-\end{figure}
+%\begin{figure}[t]
+%\centering
+%\includegraphics[scale=.39]{graphics/Figure_state_st.eps}
+%\caption{Three states of schedule table and the transitions between them.}
+%\label{figure_state_st}
+%\end{figure}
 
 A schedule table is initialized as \emph{SCHEDULETABLE\_STOPPED} state. Users can activate the schedule table by system services \emph{StartScheduleTableAbs} or \emph{StartScheduleTableRel}. When corresponding counter reaches the preset value, the schedule table will be transferred into \emph{SCHEDULETABLE\_RUNNING} state. In this state, expiry points of the schedule table could be iterated in order until schedule table ends. After that, the state will be transferred into \emph{SCHEDULETABLE\_STOPPED}. When a user calls the system service \emph{NextScheduleTable}, the schedule table will be transferred into \emph{SCHEDULETABLE\_NEXT} state from \emph{SCHEDULETABLE\_STOPPED} state, which means the schedule table is waiting for the current schedule table to end. The transition into the \emph{SCHEDULETABLE\_STOPPED} state is triggered by system service \emph{StopScheduleTable}.
 
@@ -400,13 +400,13 @@ Expiry points shift as the DST changes its offset and now we temporarily restric
   \centering
   \begin{subfigure}[t]{3.33in}
     \centering
-    \includegraphics[scale=.333]{graphics/figure_combina1.eps}
+    \includegraphics[scale=.34]{graphics/figure_combina2.eps}
     \caption{$ep_3$ expires at 3, the computational requirement which is caused by this time interval is $\omega_{l,r}((ep_3,3)).$}\label{figure_combination1}
   \end{subfigure}
   \quad
   \begin{subfigure}[t]{3.33in}
     \centering
-    \includegraphics[scale=.333]{graphics/figure_combina2.eps}
+    \includegraphics[scale=.34]{graphics/figure_combina1.eps}
     \caption{$ep_3$ expires at 0, $ep_1$ expires at 10. This time interval makes the computational requirement as $\omega_{l,r}((ep_3,0))+\omega_{l,r}((ep_1,10))$.}\label{figure_combination2}
   \end{subfigure}
   \caption{In a time interval with length 10, the computational requirement which is caused by scenario (b) is larger than it which is caused by scenario (a), i.e., the time interval in scenario (b) dominates it in scenario (a).}\label{figure_combination}
@@ -424,7 +424,7 @@ We pick one expiry point from each DST to form a set which is denoted by $\varep
 As mentioned above, we analyze the schedulability by checking whether the time interval between activation and deadline of a task is big enough to accommodate the execution time of itself and other tasks which could interrupt it. But according to Section \ref{section_busywindow}, except the time interval after activation, we also need to consider the time interval before activation. Therefore, we make the time interval grow further to the left. This brings another question, "how far should we extend the time interval?" This answer has been given in Section \ref{section_busywindow}, i.e., the length we extended should be less than the boundary of busy windows. Figure \ref{figure_3parts} shows the original time intervals with length $y$ and the extended time intervals with length $x+y$.
 \begin{figure}
   \centering
-  \includegraphics[scale=0.25]{graphics/figure_3parts.eps}
+  \includegraphics[scale=0.3]{graphics/figure_3parts.eps}
   \caption{An illustration of schedulability analysis of task $t$ which is activated by expiry point $ep$. There are three parts may affect the execution of $t$: A) interruption from $dst$ before task $t$ is activated, B) interruption from $dst$ after task $t$ is activated, C) interruption from other DSTs.}
   \label{figure_3parts}
 \end{figure}
