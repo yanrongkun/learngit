@@ -1,6 +1,6 @@
 % \iffalse
 %
-% Copyright 2016-2017, Association for Computing Machinery
+% Copyright 2016-2018, Association for Computing Machinery
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either
 % version 1.3 of this license or (at your option) any
@@ -58,7 +58,7 @@
 % \ifx\currentjob\guide\OnlyDescription\fi
 % \GetFileInfo{acmart.dtx}
 % \title{\LaTeX{} Class for the \emph{Association for Computing
-% Machinery}\thanks{\copyright 2016--2017, Association for Computing Machinery}}
+% Machinery}\thanks{\copyright 2016--2018, Association for Computing Machinery}}
 % \author{Boris Veytsman\thanks{%
 % \href{mailto:borisv@lk.net}{\texttt{borisv@lk.net}},
 % \href{mailto:boris@varphi.com}{\texttt{boris@varphi.com}}}}
@@ -101,6 +101,7 @@
 %  Michael D.~Adams,
 %  Leif Andersen,
 %  Dirk Beyer,
+%  Joachim Breitner,
 %  Benjamin Byholm,
 %  Michael Ekstrand,
 %  Matthew Fluet,
@@ -278,8 +279,10 @@
 %   manuscript & A manuscript. This is the default. \\
 %   acmsmall & Small single-column format.  Used for CIE, CSUR, DTRAP,
 %            JACM, JDIQ, JEA, JERIC,
-%            JETC, PACMHCI, PACMPL, TAAS, TACCESS, TACO, TALG, TALLIP (formerly TALIP), TCPS,
-%            TEAC, TECS, THRI, TIIS, TISSEC, TIST, TKDD, TMIS, TOCE, TOCHI, TOCL,
+%            JETC, PACMCGIT, PACMHCI, PACMPL, TAAS, TACCESS, TACO,
+%            TALG, TALLIP (formerly TALIP), TCPS, TDSCI,
+%            TEAC, TECS, THRI, TIIS, TIOT, TISSEC, TIST, TKDD, TMIS,
+%            TOCE, TOCHI, TOCL, 
 %            TOCS, TOCT, TODAES, TODS, TOIS, TOIT, TOMACS, TOMM (formerly
 %            TOMCCAP), TOMPECS, TOMS, TOPC, TOPLAS, TOPS,
 %            TOS, TOSEM, TOSN, TRETS,
@@ -399,75 +402,6 @@
 % Table~\ref{tab:pubs}.  Note that conference proceedings published in
 % \emph{book} form do not set this macro.
 %
-% \begin{table}
-%   \centering
-%   \caption{ACM publications and arguments of the \cs{acmJournal}
-%   command}\footnotesize
-%   \label{tab:pubs}
-%   \begin{tabularx}{\textwidth}{>{\ttfamily}lX}
-%     \toprule
-%     \normalfont Abbreviation & Publication \\
-%     \midrule
-%     CIE & ACM Computers in Entertainment \\
-%     CSUR & ACM Computing Surveys\\
-%     DTRAP &  Digital Threats: Research and Practice\\  
-%     IMWUT & PACM on Interactive, Mobile, Wearable and Ubiquitous
-%     Technologies\\
-%     JACM &  Journal of the ACM \\
-%     JDIQ & ACM Journal of Data and Information Quality \\
-%     JEA & ACM Journal of Experimental Algorithmics \\
-%     JERIC & ACM Journal of Educational Resources in Computing\\
-%     JETC & ACM Journal on Emerging Technologies in Computing Systems \\
-%     JOCCH & ACM Journal on Computing and Cultural Heritage \\
-%     PACMHCI & PACM on Human-Computer Interaction\\
-%     PACMPL & PACM on Programming Languages \\
-%     POMACS & PACM on Measurement and Analysis of Computing Systems \\
-%     TAAS & ACM Transactions on Autonomous and Adaptive Systems\\
-%     TACCESS & ACM Transactions on Accessible Computing\\
-%     TACO & ACM Transactions on Architecture and Code Optimization \\
-%     TALG & ACM Transactions on Algorithms \\
-%     TALLIP & ACM Transactions on Asian and Low-Resource Language
-%     Information Processing\\
-%     TAP & ACM Transactions on Applied Perception \\
-%     TCPS & ACM Transactions on Cyber-Physical Systems\\
-%     TEAC & ACM Transactions on Economics and Computation\\
-%     TECS & ACM Transactions on Embedded Computing Systems \\
-%     THRI & ACM Transactions on Human-Robot Interaction\\
-%     TIIS & ACM Transactions on Interactive Intelligent Systems\\
-%     TISSEC & ACM Transactions on Information and System Security\\
-%     TIST & ACM Transactions on Intelligent Systems and Technology \\
-%     TKDD & ACM Transactions on Knowledge Discovery from Data\\
-%     TMIS & ACM Transactions on Management Information Systems\\
-%     TOCE & ACM Transactions on Computing Education\\
-%     TOCHI & ACM Transactions on Computer-Human Interaction\\
-%     TOCL & ACM Transactions on Computational Logic\\
-%     TOCS & ACM Transactions on Computer Systems \\
-%     TOCT & ACM Transactions on Computation Theory \\
-%     TODAES & ACM Transactions on Design Automation of Electronic Systems\\
-%     TODS & ACM Transactions on Database Systems\\
-%     TOG & ACM Transactions on Graphics\\
-%     TOIS & ACM Transactions on Information Systems\\
-%     TOIT & ACM Transactions on Internet Technology\\
-%     TOMACS & ACM Transactions on Modeling and Computer Simulation \\
-%     TOMM  & ACM Transactions on Multimedia Computing, Communications
-%     and Applications \\
-%     TOMPECS & ACM Transactions on Modeling and Performance Evaluation
-%     of Computing Systems\\
-%     TOMS & ACM Transactions on Mathematical Software\\
-%     TOPC & ACM Transactions on Parallel Computing\\
-%     TOPLAS & ACM Transactions on Programming Languages and Systems\\
-%     TOPS & ACM Transactions on Privacy and Security\\
-%     TOS & ACM Transactions on Storage\\
-%     TOSEM & ACM Transactions on Software Engineering and Methodology\\
-%     TOSN & ACM Transactions on Sensor Networks\\
-%     TRETS & ACM Transactions on Reconfigurable Technology and Systems\\
-%     TSAS & ACM Transactions on Spatial Algorithms and Systems\\
-%     TSC & ACM Transactions on Social Computing\\
-%     TSLP & ACM Transactions on Speech and Language Processing \\
-%     TWEB & ACM Transactions on the Web\\
-%   \bottomrule
-%   \end{tabularx}
-% \end{table}
 %
 % It is expected that this command is inserted by the author of the
 % manuscript when she decides to which journal to submit the
@@ -865,9 +799,9 @@
 % \end{verbatim}
 % Note that you do not need to put the dollar sign here, just the
 % amount.  By default the price is \$15.00, unless the copyright is
-% set to |usgov| or |rightsretained|, when it is suppressed.  Note that to
-% override the defaults you need to set the price \emph{after} the
-% \cs{setcopyright} command.  Also, the
+% set to |usgov|, |rightsretained|, |iw3c2w3|, or |iw3c2w3g|, when it
+% is suppressed.  Note that to override the defaults you need to set
+% the price \emph{after} the \cs{setcopyright} command.  Also, the
 % command |\acmPrice{}| suppresses the printing of the price.
 %
 % \DescribeMacro{\acmISBN}%
@@ -998,7 +932,7 @@
 %     \texttt{acmcopyright} & The authors transfer the copyright to the
 %     ACM (the ``traditional'' choice).\\
 %     \texttt{acmlicensed} & The authors retain the copyright but
-%     license the publication rights to the ACM\@. \\
+%     license the publication rights to ACM\@. \\
 %     \texttt{rightsretained} & The authors retain the copyright and
 %     publication rights to themselves or somebody else. \\
 %     \texttt{usgov} & All the authors are employees of the US
@@ -1010,17 +944,17 @@
 %     \texttt{cagovmixed} & Some authors are employees of the Canadian
 %     government. \\
 %     \texttt{licensedusgovmixed} & Some authors are employees of the US
-%     government, and the publication rights are licensed to the ACM\@. \\
+%     government, and the publication rights are licensed to ACM\@. \\
 %     \texttt{licensedcagov} & All the authors are employees of the Canadian
-%     government, and the publication rights are licensed to the ACM\@. \\
+%     government, and the publication rights are licensed to ACM\@. \\
 %     \texttt{licensedcagovmixed} & Some authors are employees of the
 %     Canadian
-%     government, and the publication rights are licensed to the ACM\@. \\
+%     government, and the publication rights are licensed to ACM\@. \\
 %     \texttt{othergov} & Authors are employees of a
 %     government other than the US or Canada. \\
 %     \texttt{licensedothergov} & Authors are employees of a
 %     government other than the US or Canada, and the publication rights
-%                                   are licensed to the ACM\@. \\
+%                                   are licensed to ACM\@. \\
 %     \texttt{iw3c2w3} & Special statement for conferences organized
 %     by IW3C2.\\
 %     \texttt{iw3c2w3g} & Special statement for conferences organized
@@ -1648,6 +1582,91 @@
 % \emph{do not ask for support.}  If you decide to use this hook, you
 % are on your own.
 %
+%
+%\subsection{Currently supported publications}
+%\label{sec:pubs}
+%
+%\bgroup\centering
+% \begin{longtable}{>{\ttfamily}p{0.2\textwidth}@{}p{0.8\textwidth}}
+%   \caption{ACM publications and arguments of the \cs{acmJournal}
+%   command}
+%   \label{tab:pubs}\\
+%     \toprule
+%     \normalfont Abbreviation & Publication \\
+%     \midrule
+% \endfirsthead
+%   \caption[]{ACM publications and arguments of the \cs{acmJournal}
+%   command (continued)}\\
+%     \toprule
+%     \normalfont Abbreviation & Publication \\
+%     \midrule
+% \endhead
+% \bottomrule
+% \endfoot
+%     CIE & ACM Computers in Entertainment \\
+%     CSUR & ACM Computing Surveys\\
+%     DTRAP &  Digital Threats: Research and Practice\\  
+%     IMWUT & PACM on Interactive, Mobile, Wearable and Ubiquitous
+%     Technologies\\
+%     JACM &  Journal of the ACM \\
+%     JDIQ & ACM Journal of Data and Information Quality \\
+%     JEA & ACM Journal of Experimental Algorithmics \\
+%     JERIC & ACM Journal of Educational Resources in Computing\\
+%     JETC & ACM Journal on Emerging Technologies in Computing Systems \\
+%     JOCCH & ACM Journal on Computing and Cultural Heritage \\
+%     PACMCGIT & Proceedings of the ACM on Computer Graphics and
+%     Interactive Techniques\\ 
+%     PACMHCI & PACM on Human-Computer Interaction\\
+%     PACMPL & PACM on Programming Languages \\
+%     POMACS & PACM on Measurement and Analysis of Computing Systems \\
+%     TAAS & ACM Transactions on Autonomous and Adaptive Systems\\
+%     TACCESS & ACM Transactions on Accessible Computing\\
+%     TACO & ACM Transactions on Architecture and Code Optimization \\
+%     TALG & ACM Transactions on Algorithms \\
+%     TALLIP & ACM Transactions on Asian and Low-Resource Language
+%     Information Processing\\
+%     TAP & ACM Transactions on Applied Perception \\
+%     TCPS & ACM Transactions on Cyber-Physical Systems\\
+%     TDSCI & ACM Transactions on Data Science\\
+%     TEAC & ACM Transactions on Economics and Computation\\
+%     TECS & ACM Transactions on Embedded Computing Systems \\
+%     THRI & ACM Transactions on Human-Robot Interaction\\
+%     TIIS & ACM Transactions on Interactive Intelligent Systems\\
+%     TIOT & ACM Transactions on Internet of Things \\
+%     TISSEC & ACM Transactions on Information and System Security\\
+%     TIST & ACM Transactions on Intelligent Systems and Technology \\
+%     TKDD & ACM Transactions on Knowledge Discovery from Data\\
+%     TMIS & ACM Transactions on Management Information Systems\\
+%     TOCE & ACM Transactions on Computing Education\\
+%     TOCHI & ACM Transactions on Computer-Human Interaction\\
+%     TOCL & ACM Transactions on Computational Logic\\
+%     TOCS & ACM Transactions on Computer Systems \\
+%     TOCT & ACM Transactions on Computation Theory \\
+%     TODAES & ACM Transactions on Design Automation of Electronic Systems\\
+%     TODS & ACM Transactions on Database Systems\\
+%     TOG & ACM Transactions on Graphics\\
+%     TOIS & ACM Transactions on Information Systems\\
+%     TOIT & ACM Transactions on Internet Technology\\
+%     TOMACS & ACM Transactions on Modeling and Computer Simulation \\
+%     TOMM  & ACM Transactions on Multimedia Computing, Communications
+%     and Applications \\
+%     TOMPECS & ACM Transactions on Modeling and Performance Evaluation
+%     of Computing Systems\\
+%     TOMS & ACM Transactions on Mathematical Software\\
+%     TOPC & ACM Transactions on Parallel Computing\\
+%     TOPLAS & ACM Transactions on Programming Languages and Systems\\
+%     TOPS & ACM Transactions on Privacy and Security\\
+%     TOS & ACM Transactions on Storage\\
+%     TOSEM & ACM Transactions on Software Engineering and Methodology\\
+%     TOSN & ACM Transactions on Sensor Networks\\
+%     TRETS & ACM Transactions on Reconfigurable Technology and Systems\\
+%     TSAS & ACM Transactions on Spatial Algorithms and Systems\\
+%     TSC & ACM Transactions on Social Computing\\
+%     TSLP & ACM Transactions on Speech and Language Processing \\
+%     TWEB & ACM Transactions on the Web\\
+% \end{longtable}
+%\egroup
+%
 % \StopEventually{
 % \clearpage
 % \bibliography{acmart}
@@ -1671,7 +1690,7 @@
 \ProvidesFile{acmart.dtx}
 %</gobble>
 %<class>\ProvidesClass{acmart}
-[2018/01/24 v1.49 Typesetting articles for the Association for
+[2018/04/14 v1.53 Typesetting articles for the Association for
 Computing Machinery]
 %    \end{macrocode}
 %
@@ -1751,12 +1770,14 @@ Computing Machinery]
 % \changes{1.48}{2017/10/14}{Bib code cleanup (Zack Weinberg)}
 % \changes{1.48}{2017/12/03}{Documentation update (siggraph)}
 % \changes{1.49}{2018/01/24}{New journal:  DTRAP}
+% \changes{1.53}{2018/04/14}{New journals: PACMCGIT, TIOT, TDSCI}
+% \changes{1.53}{2018/04/14}{Rearranged docs}
 %
 % And the driver code:
 %    \begin{macrocode}
 %<*gobble>
 \documentclass{ltxdoc}
-\usepackage{array,booktabs,amsmath,graphicx,fancyvrb,tabularx}
+\usepackage{array,booktabs,amsmath,graphicx,fancyvrb,tabularx, longtable}
 \usepackage[tt=false, type1=true]{libertine}
 \usepackage[varqu]{zi4}
 \usepackage[libertine]{newtxmath}
@@ -2485,13 +2506,7 @@ Computing Machinery]
 %   prefers the AMS bibliography style.  We turn it back to the
 %   \LaTeX\ definition:
 %    \begin{macrocode}
-\def\bibliographystyle#1{%
-  \ifx\@begindocumenthook\@undefined\else
-    \expandafter\AtBeginDocument
-  \fi
-    {\if@filesw
-       \immediate\write\@auxout{\string\bibstyle{#1}}%
-     \fi}}
+
 %    \end{macrocode}
 %
 % \end{macro}
@@ -2820,13 +2835,20 @@ Computing Machinery]
 % problems with \cs{l} in OT1}%
 % \changes{v1.33}{2017/03/12}{Switched to Type~1 fonts for libertine
 % even if OTF-capable engine is used (Kai Mindermann)}
+% \changes{v1.51}{2018/04/05}{XeTeX now uses OTF fonts (Joachim Breitner)}
 % We use Libertine throughout.
 %    \begin{macrocode}
 \if@ACM@newfonts
-\RequirePackage[tt=false, type1=true]{libertine}
+\ifxetex
+  \RequirePackage[tt=false]{libertine}
+\else
+  \RequirePackage[tt=false, type1=true]{libertine}
+\fi
 \RequirePackage[varqu]{zi4}
 \RequirePackage[libertine]{newtxmath}
-\RequirePackage[T1]{fontenc}
+\ifxetex\else
+  \RequirePackage[T1]{fontenc}
+\fi
 \fi
 %    \end{macrocode}
 %
@@ -3110,6 +3132,7 @@ Computing Machinery]
 % \changes{v1.30}{2017/02/15}{Updated IMWUT and PACMPL}
 % \changes{v1.36}{2017/05/13}{Added PACMHCI journal options}
 % \changes{v1.46}{2017/08/25}{PACM now set screen to true}
+% \changes{v1.53}{2018/04/14}{Added PACMCGIT, TIOT, TDSCI}
 %
 % We use the |xkeyval| interface to define journal titles and the relevant
 % information
@@ -3125,6 +3148,7 @@ Computing Machinery]
   JERIC,%
   JETC,%
   JOCCH,%
+  PACMCGIT,%
   PACMHCI,%
   PACMPL,%
   POMACS,%
@@ -3135,10 +3159,12 @@ Computing Machinery]
   TALLIP,%
   TAP,%
   TCPS,%
+  TDSCI,%
   TEAC,%
   TECS,%
   THRI,%
   TIIS,%
+  TIOT,%
   TISSEC,%
   TIST,%
   TKDD,%
@@ -3212,6 +3238,12 @@ Computing Machinery]
 \or % JOCCH
   \def\@journalName{ACM Journal on Computing and Cultural Heritage}%
   \def\@journalNameShort{ACM J. Comput. Cult. Herit.}%
+\or % PACMCGIT
+  \def\@journalName{Proceedings of the ACM on Computer Graphics and Interactive Techniques}%
+  \def\@journalNameShort{Proc. ACM Comput. Graph. Interact. Tech.}%
+  \def\@permissionCodeOne{2577-6193}%
+  \@ACM@screentrue
+  \PackageInfo{\@classname}{Using screen mode due to \@journalCode}%
 \or % PACMHCI
   \def\@journalName{Proceedings of the ACM on Human-Computer Interaction}%
   \def\@journalNameShort{Proc. ACM Hum.-Comput. Interact.}%
@@ -3253,6 +3285,10 @@ Computing Machinery]
   \def\@journalName{ACM Transactions on Applied Perception}%
 \or % TCPS
   \def\@journalName{ACM Transactions on Cyber-Physical Systems}%
+\or % TDSCI
+  \def\@journalName{ACM Transactions on Data Science}%
+  \def\@journalNameShort{ACM Trans. Data Sci.}%
+  \def\@permissionCodeOne{2577-3224}%
 \or % TEAC
   \def\@journalName{ACM Transactions on Economics and Computation}%
 \or % TECS
@@ -3267,6 +3303,10 @@ Computing Machinery]
   \def\@journalName{ACM Transactions on Interactive Intelligent Systems}%
   \def\@journalNameShort{ACM Trans. Interact. Intell. Syst.}%
   \def\@permissionCodeOne{2160-6455}%
+\or % TIOT
+  \def\@journalName{ACM Transactions on Internet of Things}%
+  \def\@journalNameShort{ACM Trans. Internet Things}%
+  \def\@permissionCodeOne{2577-6207}%
 \or % TISSEC
   \def\@journalName{ACM Transactions on Information and System Security}%
   \def\@journalNameShort{ACM Trans. Info. Syst. Sec.}%
@@ -4196,6 +4236,9 @@ Computing Machinery]
 % \changes{v1.10}{2016/05/22}{Changes of `licensedothergov' wording}
 % \changes{v1.35}{2017/04/22}{If the copyright is set to usgov or
 % rigtsretained, the price is suppressed}
+% \changes{v1.51}{2018/04/05}{Suppress price if the copyright is set
+% to iw3c2w3 or iw3c2w3g}
+% \changes{v1.51}{2018/04/05}{Corrected the bug with price suppression}
 % Keys:
 %    \begin{macrocode}
 \define@choicekey*{ACM@}{acmcopyrightmode}[%
@@ -4217,13 +4260,13 @@ Computing Machinery]
   \fi
   \ifnum\acm@copyrightmode=3\relax % rightsretained
    \@acmownedfalse
-   \acmPrice{}%
+   \AtBeginDocument{\acmPrice{}}%
   \fi
   \ifnum\acm@copyrightmode=4\relax % usgov
    \@printpermissiontrue
    \@printcopyrightfalse
    \@acmownedfalse
-   \acmPrice{}%
+   \AtBeginDocument{\acmPrice{}}%
   \fi
   \ifnum\acm@copyrightmode=6\relax % cagov
    \@acmownedfalse
@@ -4245,9 +4288,11 @@ Computing Machinery]
   \fi
   \ifnum\acm@copyrightmode=13\relax % iw3c2w3
    \@acmownedfalse
+   \AtBeginDocument{\acmPrice{}}%
   \fi
   \ifnum\acm@copyrightmode=14\relax % iw3c2w3g
    \@acmownedfalse
+   \AtBeginDocument{\acmPrice{}}%
   \fi}
 %    \end{macrocode}
 %
@@ -4262,7 +4307,9 @@ Computing Machinery]
 %
 %
 % \begin{macro}{\@copyrightowner}
-% \changes{v1.40}{2017/06/16}{Added new copyright version: licensedcagov}
+% \changes{v1.40}{2017/06/16}{Added new copyright version:
+% licensedcagov}
+% \changes{v1.52}{2018/04/09}{Rewording of licenses}
 %   Here is the owner of the copyright
 %    \begin{macrocode}
 \def\@copyrightowner{%
@@ -4271,7 +4318,7 @@ Computing Machinery]
   Association for Computing Machinery.
   \or % acmlicensed
   Copyright held by the owner/author(s). Publication rights licensed to
-  the Association for Computing Machinery.
+  ACM\@.
   \or % rightsretained
   Copyright held by the owner/author(s).
   \or % usgov
@@ -4283,24 +4330,24 @@ Computing Machinery]
   Association for Computing Machinery.
   \or %licensedusgovmixed
   Copyright held by the owner/author(s). Publication rights licensed to
-  the Association for Computing Machinery.
+  ACM\@.
   \or % licensedcagov
   Crown in Right of Canada. Publication rights licensed to
-  the Association for Computing Machinery.
+  ACM\@.
   \or %licensedcagovmixed
   Copyright held by the owner/author(s). Publication rights licensed to
-  the Association for Computing Machinery.
+  ACM\@.
   \or % othergov
   Association for Computing Machinery.
   \or % licensedothergov
   Copyright held by the owner/author(s). Publication rights licensed to
-  the Association for Computing Machinery.
+  ACM\@.
   \or % ic2w3www
   IW3C2 (International World Wide Web Conference Committee), published
-  under Creative Commons CC~BY~4.0 License.
+  under Creative Commons CC-BY~4.0 License.
   \or % ic2w3wwwgoogle
   IW3C2 (International World Wide Web Conference Committee), published
-  under Creative Commons CC~BY-NC-ND~4.0 License.
+  under Creative Commons CC-BY-NC-ND~4.0 License.
   \fi}
 %    \end{macrocode}
 %
@@ -4318,6 +4365,9 @@ Computing Machinery]
 %
 % \begin{macro}{\@copyrightpermission}
 % \changes{v1.40}{2017/06/16}{Added new copyright version: licensedcagov}
+% \changes{v1.50}{2018/02/07}{New copyright statements for iw3c2w3[g]}
+% \changes{v1.52}{2018/04/09}{Another rewording of copyright
+% statements for iw3c2w3[g]} 
 %   The canned permission block.
 %    \begin{macrocode}
 \def\@copyrightpermission{%
@@ -4433,23 +4483,15 @@ Computing Machinery]
    only.
  \or % iw3c2w3
    This paper is published under the Creative Commons Attribution~4.0
-   International (CC~BY~4.0) license. Authors reserve their rights to
+   International (CC-BY~4.0) license. Authors reserve their rights to
    disseminate the work on their personal and corporate Web sites with
-   the appropriate attribution. In case of republication, reuse, etc.,
-   the following attribution should be used: ``Published in
-   WWW\@acmYear{} Proceedings \textcopyright{} \@copyrightyear{}
-   International World Wide Web Conference Committee, published under
-   Creative Commons~CC~BY~4.0  License.'' 
+   the appropriate attribution. 
  \or % iw3c2w3g
    This paper is published under the Creative Commons
    Attribution-NonCommercial-NoDerivs~4.0 International
-   (CC~BY-NC-ND~4.0) license. Authors reserve their rights to
+   (CC-BY-NC-ND~4.0) license. Authors reserve their rights to
    disseminate the work on their personal and corporate Web sites with
-   the appropriate attribution. In case of republication, reuse, etc.,
-   the following attribution should be used: ``Published in
-   WWW\@acmYear{} Proceedings \textcopyright{} \@copyrightyear
-   International World Wide Web Conference Committee, published under
-   Creative Commons CC~BY-NC-ND~4.0 License.''   
+   the appropriate attribution. 
  \fi}
 %    \end{macrocode}
 %
@@ -5654,6 +5696,8 @@ Computing Machinery]
 % \changes{v1.33}{2017/03/10}{Added timestamp (Michael D.~Adams)}
 % \changes{v1.33}{2017/03/29}{Added right linecount for two-column formats}
 %   The page style for all pages but the first one
+% \changes{v1.51}{2018/04/05}{We now use journal abbreviation for footers}
+%   The page style for all pages but the first one
 %    \begin{macrocode}
 \fancypagestyle{standardpagestyle}{%
   \fancyhf{}%
@@ -5671,7 +5715,7 @@ Computing Machinery]
     \fancyhead[RO]{\@headfootfont\@acmArticle\if@ACM@printfolios:\thepage\fi}%
     \fancyhead[RE]{\@headfootfont\@shortauthors}%
     \fancyhead[LO]{\ACM@linecountL\@headfootfont\shorttitle}%
-    \fancyfoot[RO,LE]{\footnotesize \@journalName, Vol. \@acmVolume, No.
+    \fancyfoot[RO,LE]{\footnotesize \@journalNameShort, Vol. \@acmVolume, No.
     \@acmNumber, Article \@acmArticle.  Publication date: \@acmPubDate.}%
   \or % acmlarge
     \fancyhead[LE]{\ACM@linecountL\@headfootfont
@@ -5679,7 +5723,7 @@ Computing Machinery]
     \fancyhead[LO]{\ACM@linecountL}%
     \fancyhead[RO]{\@headfootfont
       \shorttitle\quad\textbullet\quad\@acmArticle\if@ACM@printfolios:\thepage\fi}%
-    \fancyfoot[RO,LE]{\footnotesize \@journalName, Vol. \@acmVolume, No.
+    \fancyfoot[RO,LE]{\footnotesize \@journalNameShort, Vol. \@acmVolume, No.
     \@acmNumber, Article \@acmArticle.  Publication date: \@acmPubDate.}%
   \or % acmtog
     \fancyhead[LE]{\ACM@linecountL\@headfootfont
@@ -5688,7 +5732,7 @@ Computing Machinery]
     \fancyhead[RE]{\ACM@linecountR}%
     \fancyhead[RO]{\@headfootfont
       \shorttitle\quad\textbullet\quad\@acmArticle\if@ACM@printfolios:\thepage\fi\ACM@linecountR}%
-    \fancyfoot[RO,LE]{\footnotesize \@journalName, Vol. \@acmVolume, No.
+    \fancyfoot[RO,LE]{\footnotesize \@journalNameShort, Vol. \@acmVolume, No.
     \@acmNumber, Article \@acmArticle.  Publication date: \@acmPubDate.}%
   \else % Proceedings
     \fancyfoot[C]{\if@ACM@printfolios\footnotesize\thepage\fi}%
@@ -5783,7 +5827,10 @@ Computing Machinery]
 %
 % \begin{macro}{firstpagestyle}
 % \changes{v1.33}{2017/03/10}{Added timestamp (Michael D.~Adams)}
-% \changes{v1.33}{2017/03/29}{Added right linecount for two-column formats}
+% \changes{v1.33}{2017/03/29}{Added right linecount for two-column
+% formats}
+% \changes{v1.51}{2018/04/05}{We now use journal abbreviation for
+% footers} 
 %   The page style for the first page only.
 %    \begin{macrocode}
 \fancypagestyle{firstpagestyle}{%
@@ -5796,7 +5843,7 @@ Computing Machinery]
     \fancyfoot[RO,LE]{\if@ACM@printfolios\small\thepage\fi}%
     \fancyfoot[RE,LO]{\footnotesize Manuscript submitted to ACM}%
   \or % acmsmall
-    \fancyfoot[RO,LE]{\footnotesize \@journalName, Vol. \@acmVolume, No.
+    \fancyfoot[RO,LE]{\footnotesize \@journalNameShort, Vol. \@acmVolume, No.
     \@acmNumber, Article \@acmArticle.  Publication date:
     \@acmPubDate.}%
     \fancyhead[LE]{\ACM@linecountL\@folioblob}%
@@ -5804,7 +5851,7 @@ Computing Machinery]
     \fancyhead[RO]{\@folioblob}%
     \fancyheadoffset[RO,LE]{0.6\@folio@wd}%
   \or % acmlarge
-    \fancyfoot[RO,LE]{\footnotesize \@journalName, Vol. \@acmVolume, No.
+    \fancyfoot[RO,LE]{\footnotesize \@journalNameShort, Vol. \@acmVolume, No.
     \@acmNumber, Article \@acmArticle.  Publication date:
     \@acmPubDate.}%
     \fancyhead[RO]{\@folioblob}%
@@ -5812,7 +5859,7 @@ Computing Machinery]
     \fancyhead[LO]{\ACM@linecountL}%
     \fancyheadoffset[RO,LE]{1.4\@folio@wd}%
   \or % acmtog
-    \fancyfoot[RO,LE]{\footnotesize \@journalName, Vol. \@acmVolume, No.
+    \fancyfoot[RO,LE]{\footnotesize \@journalNameShort, Vol. \@acmVolume, No.
     \@acmNumber, Article \@acmArticle.  Publication date:
     \@acmPubDate.}%
     \fancyhead[L]{\ACM@linecountL}%

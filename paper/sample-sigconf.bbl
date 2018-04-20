@@ -1,317 +1,121 @@
-%%% -*-BibTeX-*-
-%%% Do NOT edit. File created by BibTeX with style
-%%% ACM-Reference-Format-Journals [18-Jan-2012].
+\begin{thebibliography}{10}
 
-\begin{thebibliography}{20}
+\bibitem{DBLP:journals/jacm/LiuL73}
+C.~L. Liu and James~W. Layland.
+\newblock Scheduling algorithms for multiprogramming in a hard-real-time
+  environment.
+\newblock {\em J. {ACM}}, 20(1):46--61, 1973.
 
-%%% ====================================================================
-%%% NOTE TO THE USER: you can override these defaults by providing
-%%% customized versions of any of these macros before the \bibliography
-%%% command.  Each of them MUST provide its own final punctuation,
-%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
-%%% do not use final punctuation, in order to avoid confusing it with
-%%% the Web address.
-%%%
-%%% To suppress output of a particular field, define its macro to expand
-%%% to an empty string, or better, \unskip, like this:
-%%%
-%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
-%%%
-%%% \def \showDOI #1{\unskip}           % plain TeX syntax
-%%%
-%%% ====================================================================
+\bibitem{DBLP:conf/rtas/StiggeEGY11}
+Martin Stigge, Pontus Ekberg, Nan Guan, and Wang Yi.
+\newblock The digraph real-time task model.
+\newblock In {\em {RTAS} 2011, Chicago, Illinois, USA, 11-14 April 2011}, pages
+  71--80, 2011.
 
-\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
-\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
-\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
-\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
-\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
-\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
-\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
-\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
-\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
-% The following commands are used for tagged output and should be
-% invisible to TeX
-\providecommand\bibfield[2]{#2}
-\providecommand\bibinfo[2]{#2}
-\providecommand\natexlab[1]{#1}
-\providecommand\showeprint[2][]{arXiv:#2}
+\bibitem{DBLP:journals/computing/WangLHSM13}
+Jiantao Wang, Kam{-}yiu Lam, Song Han, Sang~Hyuk Son, and Aloysius~K. Mok.
+\newblock An effective fixed priority co-scheduling algorithm for periodic
+  update and application transactions.
+\newblock {\em Computing}, 95(10-11):993--1018, 2013.
 
-\bibitem[\protect\citeauthoryear{Anssi, Piergiovanni, Kuntz, G{\'{e}}rard, and
-  Terrier}{Anssi et~al\mbox{.}}{2011}]%
-        {DBLP:conf/isorc/AnssiTKGT11}
-\bibfield{author}{\bibinfo{person}{Saoussen Anssi}, \bibinfo{person}{Sara~Tucci
-  Piergiovanni}, \bibinfo{person}{Stefan Kuntz},
-  \bibinfo{person}{S{\'{e}}bastien G{\'{e}}rard}, {and}
-  \bibinfo{person}{Fran{\c{c}}ois Terrier}.} \bibinfo{year}{2011}\natexlab{}.
-\newblock \showarticletitle{Enabling Scheduling Analysis for {AUTOSAR}
-  Systems}. In \bibinfo{booktitle}{\emph{{ISORC} 2011, Newport Beach,
-  California, USA, 28-31 March 2011}}. \bibinfo{pages}{152--159}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1109/ISORC.2011.28}
-\showDOI{\tempurl}
+\bibitem{DBLP:conf/rtss/Baruah16}
+Sanjoy Baruah.
+\newblock Schedulability analysis for a general model of mixed-criticality
+  recurrent real-time tasks.
+\newblock In {\em 2016 {IEEE} Real-Time Systems Symposium, {RTSS} 2016, Porto,
+  Portugal, November 29 - December 2, 2016}, pages 25--34, 2016.
 
+\bibitem{DBLP:journals/csur/BurnsD17}
+Alan Burns and Robert~I. Davis.
+\newblock A survey of research into mixed criticality systems.
+\newblock {\em {ACM} Comput. Surv.}, 50(6):82:1--82:37, 2017.
 
-\bibitem[\protect\citeauthoryear{Audsley, Burns, Richardson, Tindell, and
-  Wellings}{Audsley et~al\mbox{.}}{1993}]%
-        {DBLP:journals/iee/AudsleyBRTW93}
-\bibfield{author}{\bibinfo{person}{Neil~C. Audsley}, \bibinfo{person}{Alan
-  Burns}, \bibinfo{person}{Mike~M. Richardson}, \bibinfo{person}{Ken Tindell},
-  {and} \bibinfo{person}{Andy~J. Wellings}.} \bibinfo{year}{1993}\natexlab{}.
-\newblock \showarticletitle{Applying new scheduling theory to static priority
-  pre-emptive scheduling}.
-\newblock \bibinfo{journal}{\emph{Software Engineering Journal}}
-  \bibinfo{volume}{8}, \bibinfo{number}{5} (\bibinfo{year}{1993}),
-  \bibinfo{pages}{284--292}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1049/sej.1993.0034}
-\showDOI{\tempurl}
+\bibitem{DBLP:conf/rtns/2017}
+Enrico Bini and Claire Pagetti, editors.
+\newblock {\em Proceedings of the 25th International Conference on Real-Time
+  Networks and Systems, {RTNS} 2017, Grenoble, France, October 04 - 06, 2017}.
+  {ACM}, 2017.
 
+\bibitem{DBLP:journals/rts/BakerS89}
+Theodore~P. Baker and Alan~C. Shaw.
+\newblock The cyclic executive model and ada.
+\newblock {\em Real-Time Systems}, 1(1):7--25, 1989.
 
-\bibitem[\protect\citeauthoryear{AUTOSAR}{AUTOSAR}{2013}]%
-        {autosar}
-\bibfield{author}{\bibinfo{person}{AUTOSAR}.} \bibinfo{year}{2013}\natexlab{}.
-\newblock \bibinfo{title}{Specification of AUTOSAR Operating System}.
-\newblock
+\bibitem{DBLP:conf/setta/2017}
+Kim~Guldstrand Larsen, Oleg Sokolsky, and Ji~Wang, editors.
+\newblock {\em Dependable Software Engineering. Theories, Tools, and
+  Applications - Third International Symposium, {SETTA} 2017, Changsha, China,
+  October 23-25, 2017, Proceedings}, volume 10606 of {\em Lecture Notes in
+  Computer Science}. Springer, 2017.
 
+\bibitem{autosar}
+AUTOSAR.
+\newblock Specification of autosar operating system, February 2013.
 
-\bibitem[\protect\citeauthoryear{Baker and Shaw}{Baker and Shaw}{1989}]%
-        {DBLP:journals/rts/BakerS89}
-\bibfield{author}{\bibinfo{person}{Theodore~P. Baker} {and}
-  \bibinfo{person}{Alan~C. Shaw}.} \bibinfo{year}{1989}\natexlab{}.
-\newblock \showarticletitle{The Cyclic Executive Model and Ada}.
-\newblock \bibinfo{journal}{\emph{Real-Time Systems}} \bibinfo{volume}{1},
-  \bibinfo{number}{1} (\bibinfo{year}{1989}), \bibinfo{pages}{7--25}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1007/BF02341919}
-\showDOI{\tempurl}
+\bibitem{DBLP:conf/isorc/AnssiTKGT11}
+Saoussen Anssi, Sara~Tucci Piergiovanni, Stefan Kuntz, S{\'{e}}bastien
+  G{\'{e}}rard, and Fran{\c{c}}ois Terrier.
+\newblock Enabling scheduling analysis for {AUTOSAR} systems.
+\newblock In {\em {ISORC} 2011, Newport Beach, California, USA, 28-31 March
+  2011}, pages 152--159, 2011.
 
+\bibitem{DBLP:journals/jsa/ZhaoGZ17}
+Qingling Zhao, Zonghua Gu, and Haibo Zeng.
+\newblock Design optimization for {AUTOSAR} models with preemption thresholds
+  and mixed-criticality scheduling.
+\newblock {\em Journal of Systems Architecture - Embedded Systems Design},
+  72:61--68, 2017.
 
-\bibitem[\protect\citeauthoryear{Baruah}{Baruah}{2016}]%
-        {DBLP:conf/rtss/Baruah16}
-\bibfield{author}{\bibinfo{person}{Sanjoy Baruah}.}
-  \bibinfo{year}{2016}\natexlab{}.
-\newblock \showarticletitle{Schedulability Analysis for a General Model of
-  Mixed-Criticality Recurrent Real-Time Tasks}. In
-  \bibinfo{booktitle}{\emph{2016 {IEEE} Real-Time Systems Symposium, {RTSS}
-  2016, Porto, Portugal, November 29 - December 2, 2016}}.
-  \bibinfo{pages}{25--34}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1109/RTSS.2016.012}
-\showDOI{\tempurl}
+\bibitem{DBLP:conf/etfa/HatvaniB15}
+Leo Hatvani and Reinder~J. Bril.
+\newblock Schedulability using native non-preemptive groups on an
+  {AUTOSAR/OSEK} platform.
+\newblock In {\em {ETFA} 2015, Luxembourg, September 8-11, 2015}, pages 1--8,
+  2015.
 
+\bibitem{DBLP:conf/racs/YoonR14}
+Hyunmin Yoon and Minsoo Ryu.
+\newblock Real-time priority assignment for autosar-based systems with
+  time-driven synchronization.
+\newblock In {\em {RACS} 2014, Towson, Maryland, USA, October 5-8, 2014}, pages
+  297--302, 2014.
 
-\bibitem[\protect\citeauthoryear{Bini and Pagetti}{Bini and Pagetti}{2017}]%
-        {DBLP:conf/rtns/2017}
-\bibfield{editor}{\bibinfo{person}{Enrico Bini} {and} \bibinfo{person}{Claire
-  Pagetti}} (Eds.). \bibinfo{year}{2017}\natexlab{}.
-\newblock \bibinfo{booktitle}{\emph{Proceedings of the 25th International
-  Conference on Real-Time Networks and Systems, {RTNS} 2017, Grenoble, France,
-  October 04 - 06, 2017}}. \bibinfo{publisher}{{ACM}}.
-\newblock
-\showISBNx{978-1-4503-5286-4}
-\urldef\tempurl%
-\url{http://dl.acm.org/citation.cfm?id=3139258}
-\showURL{%
-\tempurl}
+\bibitem{DBLP:conf/dasip/WangCM16}
+Wenhao Wang, Fabrice Camut, and Benoit Miramond.
+\newblock Generation of schedule tables on multi-core systems for {AUTOSAR}
+  applications.
+\newblock In {\em (DASIP), Rennes, France, October 12-14, 2016}, pages
+  191--198, 2016.
 
+\bibitem{infineon.org}
+INFINEON.
+\newblock Tc1782 32-bit single-chip microcontroller.
+\newblock Technical report, Infineon Technologies, 2011.
 
-\bibitem[\protect\citeauthoryear{Burns and Davis}{Burns and Davis}{2017}]%
-        {DBLP:journals/csur/BurnsD17}
-\bibfield{author}{\bibinfo{person}{Alan Burns} {and} \bibinfo{person}{Robert~I.
-  Davis}.} \bibinfo{year}{2017}\natexlab{}.
-\newblock \showarticletitle{A Survey of Research into Mixed Criticality
-  Systems}.
-\newblock \bibinfo{journal}{\emph{{ACM} Comput. Surv.}} \bibinfo{volume}{50},
-  \bibinfo{number}{6} (\bibinfo{year}{2017}), \bibinfo{pages}{82:1--82:37}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1145/3131347}
-\showDOI{\tempurl}
+\bibitem{Goossens:1999:LWC:553897}
+Michel Goossens, S.~P. Rahtz, Ross Moore, and Robert~S. Sutor.
+\newblock {\em The Latex Web Companion: Integrating TEX, HTML, and XML}.
+\newblock Addison-Wesley Longman Publishing Co., Inc., Boston, MA, USA, 1st
+  edition, 1999.
 
+\bibitem{DBLP:journals/iee/AudsleyBRTW93}
+Neil~C. Audsley, Alan Burns, Mike~M. Richardson, Ken Tindell, and Andy~J.
+  Wellings.
+\newblock Applying new scheduling theory to static priority pre-emptive
+  scheduling.
+\newblock {\em Software Engineering Journal}, 8(5):284--292, 1993.
 
-\bibitem[\protect\citeauthoryear{Goossens, Rahtz, Moore, and Sutor}{Goossens
-  et~al\mbox{.}}{1999}]%
-        {Goossens:1999:LWC:553897}
-\bibfield{author}{\bibinfo{person}{Michel Goossens}, \bibinfo{person}{S.~P.
-  Rahtz}, \bibinfo{person}{Ross Moore}, {and} \bibinfo{person}{Robert~S.
-  Sutor}.} \bibinfo{year}{1999}\natexlab{}.
-\newblock \bibinfo{booktitle}{\emph{The Latex Web Companion: Integrating TEX,
-  HTML, and XML} (\bibinfo{edition}{1st} ed.)}.
-\newblock \bibinfo{publisher}{Addison-Wesley Longman Publishing Co., Inc.},
-  \bibinfo{address}{Boston, MA, USA}.
-\newblock
-\showISBNx{0201433117}
+\bibitem{DBLP:journals/rts/Stigge015a}
+Martin Stigge and Wang Yi.
+\newblock Combinatorial abstraction refinement for feasibility analysis of
+  static priorities.
+\newblock {\em Real-Time Systems}, 51(6):639--674, 2015.
 
-
-\bibitem[\protect\citeauthoryear{Hatvani and Bril}{Hatvani and Bril}{2015}]%
-        {DBLP:conf/etfa/HatvaniB15}
-\bibfield{author}{\bibinfo{person}{Leo Hatvani} {and}
-  \bibinfo{person}{Reinder~J. Bril}.} \bibinfo{year}{2015}\natexlab{}.
-\newblock \showarticletitle{Schedulability using native non-preemptive groups
-  on an {AUTOSAR/OSEK} platform}. In \bibinfo{booktitle}{\emph{{ETFA} 2015,
-  Luxembourg, September 8-11, 2015}}. \bibinfo{pages}{1--8}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1109/ETFA.2015.7301449}
-\showDOI{\tempurl}
-
-
-\bibitem[\protect\citeauthoryear{INFINEON}{INFINEON}{2011}]%
-        {infineon.org}
-\bibfield{author}{\bibinfo{person}{INFINEON}.} \bibinfo{year}{2011}\natexlab{}.
-\newblock \bibinfo{booktitle}{\emph{TC1782 32-Bit Single-Chip
-  Microcontroller}}.
-\newblock \bibinfo{type}{{T}echnical {R}eport}. \bibinfo{institution}{Infineon
-  Technologies}.
-\newblock
-
-
-\bibitem[\protect\citeauthoryear{Larsen, Sokolsky, and Wang}{Larsen
-  et~al\mbox{.}}{2017}]%
-        {DBLP:conf/setta/2017}
-\bibfield{editor}{\bibinfo{person}{Kim~Guldstrand Larsen},
-  \bibinfo{person}{Oleg Sokolsky}, {and} \bibinfo{person}{Ji Wang}} (Eds.).
-  \bibinfo{year}{2017}\natexlab{}.
-\newblock \bibinfo{booktitle}{\emph{Dependable Software Engineering. Theories,
-  Tools, and Applications - Third International Symposium, {SETTA} 2017,
-  Changsha, China, October 23-25, 2017, Proceedings}}. \bibinfo{series}{Lecture
-  Notes in Computer Science}, Vol.~\bibinfo{volume}{10606}.
-  \bibinfo{publisher}{Springer}.
-\newblock
-\showISBNx{978-3-319-69482-5}
-\urldef\tempurl%
-\url{https://doi.org/10.1007/978-3-319-69483-2}
-\showDOI{\tempurl}
-
-
-\bibitem[\protect\citeauthoryear{Lehoczky}{Lehoczky}{1990}]%
-        {DBLP:conf/rtss/Lehoczky90}
-\bibfield{author}{\bibinfo{person}{John~P. Lehoczky}.}
-  \bibinfo{year}{1990}\natexlab{}.
-\newblock \showarticletitle{Fixed Priority Scheduling of Periodic Task Sets
-  with Arbitrary Deadlines}. In \bibinfo{booktitle}{\emph{Proceedings of the
-  Real-Time Systems Symposium - 1990, Lake Buena Vista, Florida, USA, December
-  1990}}. \bibinfo{pages}{201--209}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1109/REAL.1990.128748}
-\showDOI{\tempurl}
-
-
-\bibitem[\protect\citeauthoryear{Liu and Layland}{Liu and Layland}{1973}]%
-        {DBLP:journals/jacm/LiuL73}
-\bibfield{author}{\bibinfo{person}{C.~L. Liu} {and} \bibinfo{person}{James~W.
-  Layland}.} \bibinfo{year}{1973}\natexlab{}.
-\newblock \showarticletitle{Scheduling Algorithms for Multiprogramming in a
-  Hard-Real-Time Environment}.
-\newblock \bibinfo{journal}{\emph{J. {ACM}}} \bibinfo{volume}{20},
-  \bibinfo{number}{1} (\bibinfo{year}{1973}), \bibinfo{pages}{46--61}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1145/321738.321743}
-\showDOI{\tempurl}
-
-
-\bibitem[\protect\citeauthoryear{OSEK}{OSEK}{2005}]%
-        {osek}
-\bibfield{author}{\bibinfo{person}{OSEK}.} \bibinfo{year}{2005}\natexlab{}.
-\newblock \bibinfo{title}{OSEK/VDX Operating System Specification 2.2.3}.
-\newblock
-
-
-\bibitem[\protect\citeauthoryear{Stigge, Ekberg, Guan, and Yi}{Stigge
-  et~al\mbox{.}}{2011}]%
-        {DBLP:conf/rtas/StiggeEGY11}
-\bibfield{author}{\bibinfo{person}{Martin Stigge}, \bibinfo{person}{Pontus
-  Ekberg}, \bibinfo{person}{Nan Guan}, {and} \bibinfo{person}{Wang Yi}.}
-  \bibinfo{year}{2011}\natexlab{}.
-\newblock \showarticletitle{The Digraph Real-Time Task Model}. In
-  \bibinfo{booktitle}{\emph{{RTAS} 2011, Chicago, Illinois, USA, 11-14 April
-  2011}}. \bibinfo{pages}{71--80}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1109/RTAS.2011.15}
-\showDOI{\tempurl}
-
-
-\bibitem[\protect\citeauthoryear{Stigge and Yi}{Stigge and Yi}{2015}]%
-        {DBLP:journals/rts/Stigge015a}
-\bibfield{author}{\bibinfo{person}{Martin Stigge} {and} \bibinfo{person}{Wang
-  Yi}.} \bibinfo{year}{2015}\natexlab{}.
-\newblock \showarticletitle{Combinatorial abstraction refinement for
-  feasibility analysis of static priorities}.
-\newblock \bibinfo{journal}{\emph{Real-Time Systems}} \bibinfo{volume}{51},
-  \bibinfo{number}{6} (\bibinfo{year}{2015}), \bibinfo{pages}{639--674}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1007/s11241-015-9220-5}
-\showDOI{\tempurl}
-
-
-\bibitem[\protect\citeauthoryear{Wang, Lam, Han, Son, and Mok}{Wang
-  et~al\mbox{.}}{2013}]%
-        {DBLP:journals/computing/WangLHSM13}
-\bibfield{author}{\bibinfo{person}{Jiantao Wang}, \bibinfo{person}{Kam{-}yiu
-  Lam}, \bibinfo{person}{Song Han}, \bibinfo{person}{Sang~Hyuk Son}, {and}
-  \bibinfo{person}{Aloysius~K. Mok}.} \bibinfo{year}{2013}\natexlab{}.
-\newblock \showarticletitle{An effective fixed priority co-scheduling algorithm
-  for periodic update and application transactions}.
-\newblock \bibinfo{journal}{\emph{Computing}} \bibinfo{volume}{95},
-  \bibinfo{number}{10-11} (\bibinfo{year}{2013}), \bibinfo{pages}{993--1018}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1007/s00607-012-0242-8}
-\showDOI{\tempurl}
-
-
-\bibitem[\protect\citeauthoryear{Wang, Camut, and Miramond}{Wang
-  et~al\mbox{.}}{2016}]%
-        {DBLP:conf/dasip/WangCM16}
-\bibfield{author}{\bibinfo{person}{Wenhao Wang}, \bibinfo{person}{Fabrice
-  Camut}, {and} \bibinfo{person}{Benoit Miramond}.}
-  \bibinfo{year}{2016}\natexlab{}.
-\newblock \showarticletitle{Generation of schedule tables on multi-core systems
-  for {AUTOSAR} applications}. In \bibinfo{booktitle}{\emph{(DASIP), Rennes,
-  France, October 12-14, 2016}}. \bibinfo{pages}{191--198}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1109/DASIP.2016.7853818}
-\showDOI{\tempurl}
-
-
-\bibitem[\protect\citeauthoryear{Yoon and Ryu}{Yoon and Ryu}{2014}]%
-        {DBLP:conf/racs/YoonR14}
-\bibfield{author}{\bibinfo{person}{Hyunmin Yoon} {and} \bibinfo{person}{Minsoo
-  Ryu}.} \bibinfo{year}{2014}\natexlab{}.
-\newblock \showarticletitle{Real-time priority assignment for autosar-based
-  systems with time-driven synchronization}. In
-  \bibinfo{booktitle}{\emph{{RACS} 2014, Towson, Maryland, USA, October 5-8,
-  2014}}. \bibinfo{pages}{297--302}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1145/2663761.2664188}
-\showDOI{\tempurl}
-
-
-\bibitem[\protect\citeauthoryear{Zhao, Gu, and Zeng}{Zhao
-  et~al\mbox{.}}{2017}]%
-        {DBLP:journals/jsa/ZhaoGZ17}
-\bibfield{author}{\bibinfo{person}{Qingling Zhao}, \bibinfo{person}{Zonghua
-  Gu}, {and} \bibinfo{person}{Haibo Zeng}.} \bibinfo{year}{2017}\natexlab{}.
-\newblock \showarticletitle{Design optimization for {AUTOSAR} models with
-  preemption thresholds and mixed-criticality scheduling}.
-\newblock \bibinfo{journal}{\emph{Journal of Systems Architecture - Embedded
-  Systems Design}}  \bibinfo{volume}{72} (\bibinfo{year}{2017}),
-  \bibinfo{pages}{61--68}.
-\newblock
-\urldef\tempurl%
-\url{https://doi.org/10.1016/j.sysarc.2016.08.003}
-\showDOI{\tempurl}
-
+\bibitem{DBLP:conf/rtss/Lehoczky90}
+John~P. Lehoczky.
+\newblock Fixed priority scheduling of periodic task sets with arbitrary
+  deadlines.
+\newblock In {\em Proceedings of the Real-Time Systems Symposium - 1990, Lake
+  Buena Vista, Florida, USA, December 1990}, pages 201--209, 1990.
 
 \end{thebibliography}
