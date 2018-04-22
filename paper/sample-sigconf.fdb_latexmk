@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex sample-sigconf"] 1524221148 "sample-sigconf.aux" "sample-sigconf.bbl" "sample-sigconf" 1524221619
+["bibtex sample-sigconf"] 1524401933 "sample-sigconf.aux" "sample-sigconf.bbl" "sample-sigconf" 1524401935
   "/usr/local/texlive/2017/texmf-dist/bibtex/bst/base/unsrt.bst" 1480098433 18030 1376b4b231b50c66211e47e42eda2875 ""
   "myreference.bib" 1522490277 70024 e62b96b87635f35e13819ead1492bb86 ""
-  "sample-sigconf.aux" 1524221618 12486 b6abdc6adec89e1d5daa3cb274f72dd1 ""
+  "sample-sigconf.aux" 1524401934 12502 0e0bf34af9bcbf54fd927e836ba85f6b ""
   (generated)
-  "sample-sigconf.blg"
   "sample-sigconf.bbl"
-["pdflatex"] 1524221617 "sample-sigconf.tex" "sample-sigconf.pdf" "sample-sigconf" 1524221619
+  "sample-sigconf.blg"
+["pdflatex"] 1524401933 "sample-sigconf.tex" "sample-sigconf.pdf" "sample-sigconf" 1524401935
   "/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc" 1480098666 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc" 1490133665 2921 8ca0eb0831f9bc5da080d3697cfe67bf ""
   "/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc" 1490133665 2933 9ad527ce78d7c5fa0a642dead095f172 ""
@@ -229,14 +229,14 @@
   "graphics/figure_dst1.eps" 1524111339 360851 2d2f0630c9e0db5ae07f13eb5a68ebe7 ""
   "graphics/figure_dst2.eps" 1524031705 347757 3e9b780cc898806339b187a9002c9b25 ""
   "graphics/figure_dst3.eps" 1524031705 337518 680f7822abeab77e85cee4dc63796372 ""
-  "graphics/figure_mrf.eps" 1524031705 345316 8264fbae85dc10ff027ac1301cebd82b ""
-  "graphics/figure_prf.eps" 1524031705 332606 14baddda5f23ca1299be557473de7eea ""
-  "graphics/figure_srf.eps" 1524031705 333422 a0635966e94f9450717789386ed13d0d ""
+  "graphics/figure_mrf.eps" 1524386225 343860 41361f966d52e94be33e338421a33231 ""
+  "graphics/figure_prf.eps" 1524386094 459442 1abd69c5149c3f350dd22dd2f3e4771b ""
+  "graphics/figure_srf.eps" 1524386291 332895 43f410041150b22ca2f5adf5c5821612 ""
   "graphics/figure_st1.eps" 1524031705 504444 fba3663bf7a70a177336f2e726ae4b86 ""
-  "sample-sigconf.aux" 1524221618 12486 b6abdc6adec89e1d5daa3cb274f72dd1 ""
-  "sample-sigconf.bbl" 1524221148 4719 63daab8b02ab469af1a875ec500072d9 "bibtex sample-sigconf"
-  "sample-sigconf.out" 1524221618 4019 c651083a93af25908614ae6d1d76fc54 ""
-  "sample-sigconf.tex" 1524221615 56087 81da8de725401eb7cb5141f21866b224 ""
+  "sample-sigconf.aux" 1524401934 12502 0e0bf34af9bcbf54fd927e836ba85f6b ""
+  "sample-sigconf.bbl" 1524401933 4719 63daab8b02ab469af1a875ec500072d9 "bibtex sample-sigconf"
+  "sample-sigconf.out" 1524401934 4019 c651083a93af25908614ae6d1d76fc54 ""
+  "sample-sigconf.tex" 1524401930 55365 9b13f0de2cf1912ad5c9f488d03a28b7 ""
   (generated)
   "sample-sigconf.out"
   "sample-sigconf.log"
