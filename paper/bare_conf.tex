@@ -1,4 +1,4 @@
-\documentclass[conference]{IEEEtran}
+\documentclass[10pt,conference]{IEEEtran}
 \pagestyle{plain} % removes running headers
 \makeatletter
 \makeatother
@@ -12,6 +12,7 @@
 \usepackage{graphicx}
 \usepackage{verbatim}
 \usepackage{algorithm}{}
+\usepackage[misc]{ifsym}
 \usepackage{algorithmic}
 \usepackage{clrscode3e}
 \newtheorem{definition}{Definition}
@@ -29,61 +30,82 @@
 \hyphenation{op-tical net-works semi-conduc-tor}
 \begin{document}
 \title{Timing Modeling and Analysis for AUTOSAR OS Schedule Tables}
-\author{\IEEEauthorblockN{Michael Shell}
-\IEEEauthorblockA{School of Electrical and\\Computer Engineering\\
-Georgia Institute of Technology\\
-Atlanta, Georgia 30332--0250\\
-Email: http://www.michaelshell.org/contact.html}
-\and
-\IEEEauthorblockN{Homer Simpson}
-\IEEEauthorblockA{Twentieth Century Fox\\
-Springfield, USA\\
-Email: homer@thesimpsons.com}
-\and
-\IEEEauthorblockN{James Kirk\\ and Montgomery Scott}
-\IEEEauthorblockA{Starfleet Academy\\
-San Francisco, California 96678--2391\\
-Telephone: (800) 555--1212\\
-Fax: (888) 555--1212}}
+
+\author{\IEEEauthorblockN{Rongkun Yan\IEEEauthorrefmark{1}, Jian Guo\IEEEauthorrefmark{1}\Letter, Xiaoran Zhu\IEEEauthorrefmark{2}, Xin Li\IEEEauthorrefmark{3}, Jizheng Ding\IEEEauthorrefmark{1}}
+\IEEEauthorblockA{
+    \IEEEauthorrefmark{1}Soft/Hardware Co-design Engineering Research Center, East China Normal University\\
+    \IEEEauthorrefmark{2}National Trusted Embedded Software Engineering Technology Research Center\\
+    \IEEEauthorrefmark{3}Shanghai Key Laboratory of Trustworthy Computing, East China Normal University\\
+    {Email: 51164500085@stu.ecnu.edu.cn, jguo@sei.ecnu.edu.cn}
+}}
 \maketitle
 \begin{abstract}
-Schedule table mechanism is an important character of AUTOSAR OS in addressing its real-time property and flexibility. Schedule table provides an encapsulation of a static configuration with one or more actions (i.e., events set or tasks activation). It is non-trivial to manually analyze schedulability of tasks in schedule tables. In this paper, we take into consideration the AUTOSAR OS scheduling with preemptive periodic schedule tables in uniprocessor. A schedule table is formally modelled by a transition system. On the basis of the transition systems, we propose an algorithm to analyze schedulability by checking all of the possible offsets between schedule tables. Furthermore, checking schedulability tool is implemented. Testbenches of schedule tables are executed in our tool and an industrial AUTOSAR OS on microcontroller respectively. The result demonstrates our method is effective on analyzing schedulability of AUTOSAR OS.
+%AUTOSAR is an automotive operate system which is founded by world-wide vehicle manufacturers in 2003, and uses the industry specification OSEK as basis.
+Schedule table mechanism is an important character of AUTOSAR OS in addressing its real-time property and flexibility by providing an encapsulation of a static configuration with one or more actions, i.e., events set or tasks activation. As a real-time system, it is non-trivial to analyze schedulability of tasks in AUTOSAR. But it is intractable to analyze schedulability manually when many schedule tables run at the same time, which is often the norm. Moreover, due to the complexity of behavior of schedule tables, the existing schedulability analysis methods cannot be applied to this mechanism. In this paper, we propose a model and an effective analysis method to assist developers in generating appropriate schedule tables. %take into consideration the AUTOSAR OS scheduling with preemptive periodic schedule tables in uniprocessor.
+A schedule table is formally modelled by a transition system. On the basis of the transition systems, we propose an algorithm to analyze schedulability by checking all the possible schedule situations. Furthermore, checking schedulability tool is implemented. Testbenches of schedule tables are executed in our tool and an industrial AUTOSAR OS on microcontroller respectively. The result demonstrates our method is effective on analyzing schedulability of AUTOSAR OS.
 \end{abstract}
 \IEEEpeerreviewmaketitle
 \section{Introduction}
-Formal methods have been widely and successfully applied to functional properties verification. But unfortunately, it is difficult to verify some non-functional characteristics, which are the key to maintain validity in highly safety-critical real-time systems. Formal analysis on schedulability of task models is researched. Liu et. al \cite{DBLP:journals/jacm/LiuL73} first build a task model for periodic tasks with a period and execution time and discuss two scheduling algorithms over the model. Stigge et al. \cite{DBLP:conf/rtas/StiggeEGY11} describe a task with a Diagraph Real-Time (DRT) task model and study the feasibility problem on preemptive periodic tasks in a uniprocessor. For analyzing the temporal validity of real-time data objects, Wang et al. \cite{DBLP:journals/computing/WangLHSM13} give transaction model with three parameters, a fixed priority, worst-case execution time (WCET) and a relative deadline. The temporal validity of real-time data object is  analyzed by periodic update transactions. S.Baruah \cite{DBLP:conf/rtss/Baruah16} analyze schedulability in a general 3-parameter sporadic task model \cite{DBLP:journals/csur/BurnsD17} for mixed-criticality concurrent real-time tasks. Moreover, S.Baruah et al. \cite{DBLP:conf/rtns/2017} propose a scheduling model for periodic preemptive tasks inspired by control theory. Despite the rapid advancements in real-time scheduling theory, industry is willing to employ the very simple cyclic executive approach \cite{DBLP:journals/rts/BakerS89} for corrective scheduling to meet stringent certification requirement. C.Deutschbein et al. \cite{DBLP:conf/setta/2017} present the problem of constructing cyclic executive upon multiprocessors.
+%Automotive embedded systems have been widely used in modern vehicles for the last 30 years. As real-time systems, automotive systems 
+
+Formal methods have been widely and successfully applied to functional properties verification. But unfortunately, it is difficult to verify some non-functional characteristics, which are the key to maintain validity in highly safety-critical real-time systems. Formal analysis on schedulability of task models is researched. Liu et. al \cite{DBLP:journals/jacm/LiuL73} first build a task model for periodic tasks with a period and execution time and discuss two scheduling algorithms over the model. Stigge et al. \cite{DBLP:conf/rtas/StiggeEGY11} describe a task with a Diagraph Real-Time (DRT) task model and study the feasibility problem on preemptive periodic tasks in a uniprocessor. For analyzing the temporal validity of real-time data objects, Wang et al. \cite{DBLP:journals/computing/WangLHSM13} give transaction model with three parameters, a fixed priority, worst-case execution time (WCET) and a relative deadline. The temporal validity of real-time data object is analyzed by periodic update transactions. S.Baruah \cite{DBLP:conf/rtss/Baruah16} analyze schedulability in a general 3-parameter sporadic task model \cite{DBLP:journals/csur/BurnsD17} for mixed-criticality concurrent real-time tasks. Moreover, S.Baruah et al. \cite{DBLP:conf/rtns/2017} propose a scheduling model for periodic preemptive tasks inspired by control theory. Despite the rapid advancements in real-time scheduling theory, industry is willing to employ the very simple cyclic executive approach \cite{DBLP:journals/rts/BakerS89} for corrective scheduling to meet stringent certification requirement. C.Deutschbein et al. \cite{DBLP:conf/setta/2017} present the problem of constructing cyclic executive upon multiprocessors.
 
 AUTOSAR (AUTomotive Open System ARchitecture) \cite{autosar} is an open and standardized layered software architecture and interfaces. The integration of software modules from different vendors forms the complete architecture. %As a consequence, more and more automotive companies tend to take AUTOSAR as their primary standard for developing their base software project, such as operating system. 
 Researchers working on AUTOSAR OS are rich in progressive and proactive. There have been many studies on analyzing AUTOSAR OS specification \cite{DBLP:conf/isorc/AnssiTKGT11}. 
-%Peng et al. adopt timed CSP method to model OS and the engine management system (EMS), some safety properties based on CSP models are verified through process analysis toolkit in \cite{DBLP:conf/tase/PengHSG13}. Huang et al. \cite{DBLP:conf/icfem/HuangFHQH13} apply formal semantics to describing tasks in AUTOSAR OS with time protection mechanism. The model predicts whether a task would violate its time constraint, and is implemented in Mathematica tool with a case study. Zhu et al. \cite{DBLP:conf/tase/ZhuLSWZ13} focus on the timing properties of AUTOSAR OS and propose an automatic verification framework based on rewriting logic to analyze the timing behaviors. Therefore, many researches of AUTOSAR OS focus on its specification, implementation and verification. 
-For schedulability of the AUTOSAR OS, both Zhao et al. \cite{DBLP:journals/jsa/ZhaoGZ17} and Hatvani et al. \cite{DBLP:conf/etfa/HatvaniB15} adopt preemptive threshold to improve the schedulability. Tasks are set with a higher priority and reduced execution time by the stack usage. In order to assist developers to assign the priorities of tasks, Yoon et al. \cite{DBLP:conf/racs/YoonR14} present a real-time task chain model, which helps to obtain a near-optimal priority assignment from the model. They concentrate on the scheduling of tasks, but few researches deal with schedule tables. Wang et al. propose a method for generating schedule tables containing periodic tasks with dependence in \cite{DBLP:conf/dasip/WangCM16} for the multi-core architectures. However the method does not give the correctness proof of generating schedule tables.
+Peng et al. adopt timed CSP method to model OS and the engine management system (EMS), some safety properties based on CSP models are verified through process analysis toolkit in \cite{DBLP:conf/tase/PengHSG13}. Huang et al. \cite{DBLP:conf/icfem/HuangFHQH13} apply formal semantics to describing tasks in AUTOSAR OS with time protection mechanism. The model predicts whether a task would violate its time constraint, and is implemented in Mathematica tool with a case study. Zhu et al. \cite{DBLP:conf/tase/ZhuLSWZ13} focus on the timing properties of AUTOSAR OS and propose an automatic verification framework based on rewriting logic to analyze the timing behaviors. Therefore, many researches of AUTOSAR OS focus on its specification, implementation and verification. 
+For schedulability of the AUTOSAR OS, both Zhao et al. \cite{DBLP:journals/jsa/ZhaoGZ17} and Hatvani et al. \cite{DBLP:conf/etfa/HatvaniB15} adopt preemptive threshold to improve the schedulability. Tasks are set with a higher priority and reduced execution time by the stack usage. In order to assist developers in assigning the priorities of tasks, Yoon et al. \cite{DBLP:conf/racs/YoonR14} present a real-time task chain model, which helps to obtain a near-optimal priority assignment from the model. They concentrate on the scheduling of tasks, but few researches deal with schedule tables. Wang et al. propose a method for generating schedule tables containing periodic tasks with dependence in \cite{DBLP:conf/dasip/WangCM16} for the multi-core architectures. However the method does not give the correctness proof of generating schedule tables.
 
 Among those aforementioned researchers, most of them analyze schedulability by modeling tasks, few attentions were given to schedule table mechanism \cite{autosar}, which is an important mechanism in AUTOSAR OS. For automobile being a high safety-critical real time system, a practical approach \cite{DBLP:journals/rts/BakerS89} applies to schedule tables in order to satisfy all tasks deadline. Inspired by the method, we present a formal method to build deterministic schedule tables. The correctness of these deterministic schedule tables is proved, which means to verify every task in schedule tables meets its deadline.
 
-A formal model is constructed for each schedule table. A set of schedule tables are composed by concurrent of all models. Tasks in schedule tables are static analyzed to prove that whether tasks finish in deadline. We propose an algorithm to travel all of the possible schedule situations so that each situation can exactly complete task execution. A time interval between a task releasing and its deadline is checked to confirm whether enough execution time for itself and other higher priority tasks. Because all schedule tables in this method are periodic, analysis of infinite running of tasks is transformed to finite running of tasks by introducing hyperperiod of schedule tables. In addition, after analyzing the schedulability of a set of schedule tables by our approach, we run testbenches of schedule tables on an implemented AUTOSAR OS based on TC1782 32-Bit Single-Chip Micro-controller \cite{infineon.org}. The result shows the consistency between them.
-
+In this paper, we take into consideration the AUTOSAR OS scheduling with preemptive periodic schedule tables in uniprocessor. We provide a formal model for abstracting behaviors of schedule tables. We propose an algorithm to analyze schedulability by testing all the possible schedule situations. In addition, after analyzing the schedulability of schedule tables by our method, we run testbenches of schedule tables on an implemented AUTOSAR OS based on TC1782 32-Bit Single-Chip Micro-controller \cite{infineon.org} to establish the effectiveness of our method.
 
 The rest of this paper is organized as follows. Section 2 introduces some concepts of AUTOSAR and schedulability analysis. Section 3 discusses the constraints of AUTOSAR OS in this paper and describes our formal models of schedule tables. Section 4 presents some definitions and notations of our algorithm. In Section 5, we propose a method by integrating concepts in section 4. Then, we compare the result of our method with the execution on hardware in Section 6. Finally, in Section 7, we give the conclusion and future work.
 
 \section{Background}
 For a better understanding of our work, we give a brief overview of AUTOSAR operating system and methods of schedulability analysis.
 \subsection{AUTOSAR Operate System}
+This part is given as prerequisites of this paper. We will state some concepts of AUTOSAR which will be used later. Those concepts are referred to OSEK/VDX operating system specification \cite{osek} and specification of AUTOSAR operating system \cite{autosar}.
+\subsubsection{Tasks and Scheduling Policy}
+AUTOSAR considers a task as the minimum unit to schedule. Even a simple application also needs to map to a task. Each task has to accomplish a specific function. A complex application is constituted by various tasks. The implementation of a task consists of a block of sequential code. AUTOSAR provides two types of tasks: extended and basic tasks.
 
-AUTOSAR considers a task as the minimum unit to schedule. Even a simple application also needs to map to a task. Each task has to accomplish a specific function. The implementation of a task consists of a block of sequential code. AUTOSAR provides two types of tasks: extended and basic tasks.
-
-Each basic task has three states: $running$, $suspended$ and $ready$. A task in the $running$ state is executed by processor. A suspended task can be put into ready queue by a system service which will transfer the task into $ready$ state. A task in $ready$ state is waiting for allocation of the processor. At most one task can be in $running$ state at the same time. Once a basic task in $running$ state is preempted by a task with a higher priority, it will be transferred into $ready$ state. A running task is transferred into $suspended$ state by a system service to terminate a task. An extended task has a strong resemblance to a basic task with except that 1) the former one could wait for a system event in an extra state named $waiting$, 2) the basic task is allowed to be activated once or multiple times while an extended task can only be activated once. 
+Each basic task has three states: $running$, $suspended$ and $ready$. A task in the $running$ state is executed by processor. %the task, so that code block of this task is performed in order. 
+At most one task can be in $running$ state at the same time. A task in $ready$ state means the task has been put into ready queue and is waiting for allocation of the processor. A suspended task can be put into ready queue by a system service. A $suspended$ task cannot be transferred into $running$ state or be transferred from $ready$ state directly. Once a basic task in $running$ state is preempted by a task with a higher priority, it will be transferred into $ready$ state. A running task is transferred into $suspended$ state by a system service to terminate a task. An extended task has a strong resemblance to a basic task with except that 1) the former one could wait for a system event in an extra state named $waiting$, 2) the basic task is allowed to be activated once or multiple times while an extended task can only be activated once. 
+%a major difference is the former has an extra state named \emph{waiting} to describe an extend task is waiting for a system event.  only when an extend task in $running$ state runs into a system service, the task can transform into $waiting$ state, then the processor will be reassigned to another task, the extended task in $waiting$ state could be executed continuously until an event occur. Except that, another difference between those two types is basic tasks can be activated once or multiple times, but for each extended task, ready queue only could contain one instance of it. 
 
 AUTOSAR uses the highest priority first and first come first served as its scheduling policy. AUTOSAR reserves a FIFO queue for each priority. When a task is activated, it will be put into the corresponding queue. Then scheduler will detect those queues in order of the highest priority and choose the task with the highest priority to execute. If more than one tasks in ready queue have the highest priority, the scheduler will choose the first one has been put into the ready queue. For the high efficiency of the system, the priorities are distributed to tasks statically.
 
-The schedule table mechanism is a new concept introduced in AUTOSAR which could statically define the pattern of tasks activation. Each schedule table encapsulates a predefined set of expiry points. An expiry point contains one or more actions which can be either activating a task or setting an event. Each expiry point has a unique offset in ticks from the start of the schedule table. In addition, a schedule table has a specific duration which defines the modulus of the schedule table. The process of schedule tables can be manipulated as users call system services at any time.
+%\subsubsection{Scheduling Policy}AUTOSAR use highest priority first policy as the first scheduling policy, and first in first out (FIFO) as second scheduling policy. AUTOSAR reserves a FIFO queue for each priority, whenever a task is activated, system puts it into the corresponding queue, and scheduler will detect from the queue with priority high to low, and choose the task with the highest priority transform into $running$ state (in full preemptive scheduling), and when more than one tasks have the highest priority in a queue, the scheduler will choose the task which activate earliest, i.e., the task at head of the queue. For the high efficiency of the system, tasks in AUTOSAR cannot be modified dynamically (ignore priority ceiling protocol), developers need to distribute a priority to each task offline. The schedule attribute defines the preemptible of a task, AUTOSAR provides three cases of schedule attributes: \emph{full preemptive schedulling}, \emph{non preemptive schedulling} and \emph{mixed preemptive schedulling}. A full preemptive task which in $running$ state may be preempted before the last instruction is completed by an interrupting of a task with higher priority or an interrupt service routine (ISR). The state of a task has just been preempted will turn into $ready$ state and scheduler will put it back into the head of the corresponding queue. Non-preemptive scheduling means a non-preemptive task in $running$ state only release processor when the task has been successful terminate, or after extended task waits for system events and transform into $waiting$ state, besides, even a task with higher priority in $ready$ state cannot affect the execution of it. In the \emph{mixed preemptive schedulling} case, full preemptive tasks and non-preemptable tasks can coexist in an operating system, and if a full preemptive task was executing, the system will perform preemptive scheduling, instead, if the processor was working on a non-preemptive task, the system will perform non-preemptive scheduling.
+
+%\subsubsection{Counters and Alarms}After giving the definition of counters, we introduce the concept of alarms. AUTOSAR satisfy the request of processing recurring events by defining alarms. Each alarm links to a counter and a set of actions, those actions could be activating tasks, setting events or entry callback routines. While the AUTOSAR operate system is running, users could set a counter value of the alarm by calling the API $SetRelAlarm$ (relative to the counter) or $SetAbsAlarm$ (absolute value of counter), whenever the corresponding counter records a tick elapses, the returned value of the counter has to compare with counter value of this alarm, and if they are equal, those actions defined in advance will be executed. %single shot or cyclic alarm
+\subsubsection{Counters and Schedule Table Mechanism}
+
+AUTOSAR operating system offers at least one system counter. Counters aim to keep track of how many ticks have been elapsed. Every counter has its max allowed value. When it reaches its max allowed value, the counter will reset to 0.
+
+The schedule table mechanism is a new concept introduced in AUTOSAR which could statically define the pattern of tasks activation. Each schedule table maps to a specific counter and encapsulates a predefined set of expiry points. An expiry point contains one or more actions, which can be either activating a task or setting an event. Each expiry point has a unique offset in ticks from the start of the schedule table. In addition, a schedule table has a specific duration which defines the modulus of the schedule table.
+
+At runtime, a schedule table is driven by a counter. One tick on the counter corresponds to one tick on schedule table. Since a schedule table start, if the increment of the counter equals to an offset of an expiry point, the actions of this expiry point will be executed. AUTOSAR also provides three states of schedule table. We illustrate these three states and the transitions between them in Figure \ref{figure_state_st} which we get from \cite{autosar}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[scale=.39]{graphics/Figure_state_st-eps-converted-to.pdf}
+\caption{Three states of schedule table and the transitions between them.}
+\label{figure_state_st}
+\end{figure}
+
+A schedule table is initialized as \emph{SCHEDULETABLE\_STOPPED} state. Users can activate the schedule table by system services \emph{StartScheduleTableAbs} or \emph{StartScheduleTableRel}. When corresponding counter reaches the preset value, the schedule table will be transferred into \emph{SCHEDULETABLE\_RUNNING} state. In this state, expiry points of the schedule table could be iterated in order until schedule table ends. After that, the state will be transferred into \emph{SCHEDULETABLE\_STOPPED}. When a user calls the system service \emph{NextScheduleTable}, the schedule table will be transferred into \emph{SCHEDULETABLE\_NEXT} state from \emph{SCHEDULETABLE\_STOPPED} state, which means the schedule table is waiting for the current schedule table to end. The transition into the \emph{SCHEDULETABLE\_STOPPED} state is triggered by system service \emph{StopScheduleTable}.
+
+%Users can also turn the state of schedule tables into \emph{SCHEDULETABLE\_STOPPED} by system service \emph{StopScheduleTable} at any time.
+
+AUTOSAR offers two types of behavior of schedule tables: single-shot and repeating. On one hand, if a schedule table is configured as single-shot, it will be transferred into \emph{SCHEDULETABLE\_STOPPED} state after the final expiry point is processed. On the other hand, for a repeating schedule table, after the final expiry point has been processed, it loops back to the first expiry point. Note that for tasks activated by a repeating schedule table, they can be regarded as periodic tasks and their period equals to the duration of the repeating schedule table.
+
+We give a simple example in Figure \ref{figure_st1} to illustrate the construction of schedule table. This schedule table is denoted by $st_1$ with the duration of 17 ticks. $st_1$ contains three expiry points $ep_1$, $ep_2$ and $ep_3$, where the initial expiry point $ep_1$ locates at 4 ticks from the start of $st_1$ with the action of activating task $t_1$, $ep_2$ defines 8 ticks as its offset and could activate task $t_2$, $ep_3$ defines 11 ticks as its offset and activates task $t_3$. The delays between two adjacent expiry points are shown as 4 ticks (from EP1 to EP2) and 3 ticks (from EP2 to EP3).
 \begin{figure}[t]
   \centering
-  \includegraphics[scale=.32]{graphics/figure_st1.eps}
+  \includegraphics[scale=.32]{graphics/figure_st1-eps-converted-to.pdf}
   \caption{An example repeating scheduel table cotaining three expiry points, and $t_1,t_2,t_3$ is three tasks.}
   \label{figure_st1}
 \end{figure}
-AUTOSAR offers two types of behavior of schedule tables: single-shot and repeating. On one hand, if a schedule table is configured as single-shot, it will stop after the final expiry point is processed. On the other hand, for a repeating schedule table, after the final expiry point has been processed, it loops back to the first expiry point. Note that for tasks activated by a repeating schedule table, they can be regarded as periodic tasks and their period equals to the duration of the repeating schedule table. We give an example in Figure \ref{figure_st1} to illustrate the construction of schedule table. This schedule table is denoted by $st_1$ with the duration of 17 ticks.
-
+%As we know, the absoult time of initial expiry of a schedule table is under user control, but if the schedule table is repeating, then, the time of initial expiry point been reached cannot be the same, this problem is cause by the duration of schedule not necessary be equal to the counter modulus.
 \subsection{Schedulability Analysis}
 The researches about schedulability analysis focus on the problem whether real-time tasks could satisfy its time property. We declare the meaning of schedulability: schedulability declare whether a set of schedule tables is schedulable. Schedulable means all tasks activated by schedule tables could take to execute before its deadline, otherwise, this set of schedule tables is non-schedulable.
 
@@ -91,38 +113,45 @@ In order to figure out the schedulability of real-time systems, several theories
 
 Since our work focuses on the single processor platform with static priority scheduling, we now pay attention the schedulability analysis method based on the response time analysis (RTA) \cite{DBLP:journals/iee/AudsleyBRTW93}. Response time analysis is suited for fixed priority tasks system. This method calculate the worst case response time, then verify whether the worst case response time of a task is in its deadline. 
 
-\section{Formal models of schedule tables} 
-For AUTOSAR operating system, there are two main factors that make the schedulability analysis intractable: 1) in AUTOSAR, several schedule tables run concurrently, 2) users can manipulate the proceeding of schedule tables by calling system services, i.e., schedule tables may stop or start running at any time, which is totally unpredictable. In order to resolve this, we decide to define a proper formal model to describe the behavior of schedule tables, then propose an algorithm to analyse the schedulability of schedule tables by the formal model. In this section, we state our model firstly. 
+\section{Modeling of schedule tables}
 
-\subsection{Constraints of AUTOSAR OS}
-On account of the widespread use of embedded automotive systems, different embedded applications may require various characteristics of operating systems as well as hardware environments are also likely to be different. So AUTOSAR provide various features to satisfy requirements. Among them, our work only focus on several characteristics: 
-\begin{compactenum}
+%For AUTOSAR operating system, there are two main factors that make the schedulability analysis intractable: 1) in AUTOSAR, several schedule tables run concurrently, 2) users can manipulate the proceeding of schedule tables by calling system services, i.e., schedule tables may stop or start running at any time, which is totally unpredictable. In order to resolve this, we decide to define a proper formal model to describe the behavior of schedule tables, then propose an algorithm to analyse the schedulability of schedule tables by the formal model. In this section, we state our model firstly. 
+In order to abstract the behaviors of schedule tables, we need a deterministic specification of AUTOSAR firstly. But AUTOSAR does not provides a single specification, but multiple features to satisfy various requirements. For instance, some implemented AUTOSAR OS only accept activated request for an unactivated task. But others implemented AUTOSAR could record activated requests of a task already activated, so that tasks are allowed to be activated many times.
+
+%the widespread use of embedded automotive systems, different embedded applications may require various characteristics of operating systems as well as hardware environments are also likely to be different. So AUTOSAR provide various features to satisfy requirements. 
+Among those features, our model only aim at several characteristics: 
+\begin{compactitem}
   \item Tasks are allowed to share the same priority level.
-  \item Lower number for higher priority.
+  %\item Lower number for higher priority.
   \item We take no account of extended tasks and events.
   \item All tasks are full preemptible.
-  \item The first scheduling policy is highest priority first, the second policy is first come first served.
-  \item A basic task can be activated infinitely many times. 
-\end{compactenum}
+  %\item The first scheduling policy is highest priority first, the second policy is first come first served.
+  \item A task can be activated infinitely many times.
+\end{compactitem}
 
-For convenience, if a task is assigned to more than one expiry points, we regard them as different tasks. In additional, we assume all schedule tables are repeating. In fact, a repeating schedule table could be transferred to a single-shot schedule table by converting the final delay into infinitely great.
+For convenience of expression, if a task is assigned to more than one expiry point, we denote them as different tasks. 
+%In additional, we assume all schedule tables are repeating. In fact, a repeating schedule table could be transferred to a single-shot schedule table by converting the final delay into infinitely great. 
+This section discusses the models of schedule tables, and offers an example.
 
-\subsection{Formal Models}
-We use a directed digraph to describe the behavior of a schedule table and named it Digraph Schedule Table model (DST). Each DST is a tuple $(Node,Tasks,Act,\rightarrow,Delay)$, where
+\subsection{Digraph Schedule Table Models}
+We took a directed digraph, named it Digraph Schedule Table model (DST), and use it to represent a schedule table. For a DST, it abstracts the attributes of a schedule table, e.g., tasks, expiry points and the order they appear.
+
+Each DST is a 5-parameters tuple $(Tasks,EPs,Act,\rightarrow,Delay)$, where
 \begin{compactitem}
-  \item $Node$ is a finite set of expiry points.
-  \item $Tasks$ is a finite set of tasks. We use a tuple $(e,d,l)$ to represent a task. Assuming $t_k\in Tasks$, then $e(t_k),d(t_k),l(t_k)$ denote the execution time, deadline and priority level of task $t_k$ respectively.% In the beginning, release time of all tasks set to 0, and could be modified during verify procedure.
-  \item $Act$ : $Node \rightarrow 2^{Tasks}$ is a function. $Act$ relates a set of actions $Act(ep)\in 2^{Tasks}$ to an expiry point $ep$.
-  \item $\rightarrow\ \subseteq Node\times Node$ is a transition relation to describe the execution sequence of expiry points. 
-  \item $Delay$ : $Node \rightarrow ticks$ is a function to describe the delay after processing an expiry point. $Delay$ of the last expiry point equals to the final delay plus the initial offset.
+  \item $Tasks$ is a finite set of tasks. Each task is described using a 3-parameters tuple $(e,d,l)$. Assuming $t_k\in Tasks$, then $e(t_k),d(t_k),l(t_k)$ denote the execution time, deadline and priority level of $t_k$ respectively (lower number for higher priority).% In the beginning, release time of all tasks set to 0, and could be modified during verify procedure.
+  \item $EPs$ is a finite set of expiry points. Each expiry point is defined by three mapping relations as follow.
+  \item $Act$ : $EPs \rightarrow 2^{Tasks}$ is a mapping function. This function reflects an expiry point encapsulates a set of tasks. 
+  %$Act$ relates a set of actions $Act(ep)\in 2^{Tasks}$ to an expiry point $ep$.
+  \item $\rightarrow\ \subseteq EPs\times EPs$ is a transition relation to describe the execution sequence of expiry points. 
+  \item $Delay$ : $EPs \rightarrow ticks$ is a function to describe the delay after processing an expiry point. $Delay$ of the last expiry point equals to the final delay plus the initial offset.
 \end{compactitem}
 
 Note that we conceal the initial offset in DST. Because during the running of a repeating schedule table, except the first loop, the initial offset always can be considered as a part of the delay of the last expiry point. With regard to the definition of $Delay$, the duration of a schedule table can be obtained by 
-\[\delta(DST)=\sum\limits_{ep_i\in Node}Delay(ep_i).\]
+\[\delta(DST)=\sum\limits_{ep_i\in EPs}Delay(ep_i).\]
 
 During the execution of a schedule table, expiry points will expire circularly. We record each time of expiring as an instance of expiry point. An instance of expiry point is represented by a pair $(ep_i,r_i)$, where $r_i$ is the expiry time. 
 Naturally to point out that the execution of a DST corresponds to an infinite sequence of instances of expiry points. 
-We use a path $\rho=[(ep_1,r_1),(ep_2,r_2),\dots,(ep_k,r_k)]$ to describe a fragment of an execution. When an expiry point expire, corresponding tasks will be activated then. For each time a task is activated, we record that as an instance of task. We use a 4-tuple $(e_i,d_i,l_i,r_i)$ to denote an instance of a task with execute time $e_i$, deadline $d_i$, priority $l_i$ and activate time $r_i$. Durning a path, expire times of instances of expiry points are constrained by the delay of corresponding expiry points, i.e., 
+We use a path $\rho=[(ep_1,r_1),(ep_2,r_2),\dots,(ep_k,r_k)]$ to describe a fragment of an execution. When an expiry point expire, corresponding tasks will be activated then. For each time a task is activated, we record that as a job. We use a 4-tuple $(e_i,d_i,l_i,r_i)$ to denote an instance of a task with execute time $e_i$, deadline $d_i$, priority $l_i$ and activate time $r_i$. Durning a path, expire times of instances of expiry points are constrained by the delay of corresponding expiry points, i.e., 
 \[r_{i+1}=r_i+Delay(ep_i).\]
 
 Similar to the calculation of duration, we get the length of a path by accumulating delays of expiry points. For a path $\rho=[(ep_1,r_1),(ep_2,r_2),\dots,(ep_k,r_k)]$, the length is calculated by: \[\iota(\rho)=r_k-r_1.\]
@@ -132,14 +161,14 @@ Similar to the calculation of duration, we get the length of a path by accumulat
 We model the schedule table given before as Figure \ref{figure_dst1} and give the tuple as follow.
 \begin{figure}
   \centering
-  \includegraphics[scale=.4]{graphics/figure_dst1.eps}
+  \includegraphics[scale=.5]{graphics/figure_dst1-eps-converted-to.pdf}
   \caption{An example of DST for $st_1$, where $t_1=<2,4,2>,\ t_2=<2,3,1>\ t_3=<2,9,6>$.}
   \label{figure_dst1}
 \end{figure}
 
-$dst_1=\{Node_1,Tasks_1,Act_1,\rightarrow_1,Delay_1\}$, where 
+$dst_1=\{EPs_1,Tasks_1,Act_1,\rightarrow_1,Delay_1\}$, where 
 \begin{compactitem}
-\item $Node_1=\{ep_1,\ ep_2,\ ep_3\}$ which cotains all expiry points.
+\item $EPs_1=\{ep_1,\ ep_2,\ ep_3\}$ which cotains all expiry points.
 \item $Tasks_1=\{t_1,\ t_2,\ t_3\}$ which cotains all tasks in $dst_1$.
 \item $Act_1$ refers to actions of an expiry point:$Act_1(ep_1)=t_1$, $Act_1(ep_2)=t_2$, $Act_1(ep_3)=t_3$.
 \item $\rightarrow_1=\{(ep_1,ep_2),(ep_2,ep_3),(ep_3,ep_1)\}$ which shows the execution sequence of expiry points.
@@ -155,25 +184,27 @@ In this section, we discuss how to verify whether a task could always satisfy it
 \subsection{Computational Requirement}
 The main idea of our analysis method is to check whether the time interval between a task's activation and deadline is big enough to accommodate the execution time of itself and other tasks which could interrupt it. But how to delineate the execution time of tasks could interrupt?
 
-For example, if we are testing an instance of task $(e(t),d(t),l(t),r(t))$, in consideration of the features of schedule policy, this instance could not be interrupted by tasks with a lower priority than $l(t)$, or tasks which have priority $l(t)$ but activate time is larger. Based on this, we introduce the concept of computational requirement to accumulate the execution time on an expiry point and dismiss the tasks which could not affect this instance.
+For example, if we are testing a job $(e,d,l,r)$, in consideration of the features of schedule policy, this job could not be interrupted by tasks with a lower priority than $l$, or tasks which have priority $l$ but are activated later. Based on this, we introduce the concept of computational requirement to accumulate the execution time of an expiry point and exclude tasks which could not influence this job.
 \begin{definition}
-For an instance of expiry point $(ep,r)$, we use computational requirement $\omega_{l(t),r(t)}^{(ep,r)}$ to accumulate the execution time of tasks in $Act(ep)$. If $r\leq r(t)$, we remove those tasks which have a lower priority than $l(t)$ from $\omega_{l(t),r(t)}^{(ep,r)}$; when $r>r(t)$, we remove tasks which have priority lower than or equal to $l(t)$ from $\omega_{l(t),r(t)}^{(ep,r)}$:
+For a job $(e, d, l, r)$ and an instance of an expiry point $(ep,r_t)$, we use computational requirement $\omega_{l,r}^{(ep,r_t)}$ to calculate the total execution time of tasks from this expiry point and exclude tasks which cannot influence this job. So, if $r_t\leq r$, we ignore tasks which have a lower priority than $l$, when $r_t>r$, we ignore tasks which have priority lower than or equal to $l$:
 \begin{equation}
-\omega_{l(t),r(t)}^{(ep,r)}=\sum\limits_{task\in \xi_{l(t),r(t)}(ep)}e(task),
+\omega_{l,r}^{(ep,r_t)}=\sum\limits_{task\in \xi_{l,r}(ep,r_t)}e(task),
 \end{equation}\label{equation_loweromega}
 where 
 \[
-\xi_{l(t),r(t)}((ep,r))=\begin{cases}\{t'|t'\in Act(ep)\wedge l(t')\leq l(t)\}\qquad if\ r\leq r(t)\\
-\{t'|t'\in Act(ep)\wedge l(t')<l(t)\}\qquad if\ r>r(t)
+\xi_{l,r}(ep,r_t)=\begin{cases}\{task|task\in Act(ep)\wedge l(task)&\leq l\}\qquad 
+\\&if\ r(t)\leq r\\\\
+\{task|task\in Act(ep)\wedge l(task)&<l\}\qquad 
+\\&if\ r(t)>r
 \end{cases}\]
 \end{definition}
-After proposing the computational requirement function, the execution time during a path can be computed as well. We still use the name $computational\ requirement$ to denote this function, but a different way to calculate.
+After proposing the computational requirement function $\omega_{l,r}^{(ep,r_t)}$, the execution time during a path can be computed as well. We use $\Omega_{l,r}(\rho)$ to denote it.
 \begin{definition}
-For a path $\rho=[(ep_1,r_1),(ep_2,r_2),\dots,(ep_n,r_n)]$, we use computational requirement $\Omega_{l,r}(\rho)$ to calculate how long those expiry points on this path will take to execute and only consider the tasks which could affect an instance of task $(e,d,l,r)$:
+For a job $(e,d,l,r)$ and a path $\rho=[(ep_1,r_1),(ep_2,r_2),\dots,(ep_n,r_n)]$, we use $\Omega_{l,r}(\rho)$ to calculate the total execution time of tasks which are activated on this path and only consider the tasks which could influence this job:
 \begin{equation}
 \Omega_{l,r}(\rho)=\sum_{i=1}^n\omega_{l,r}^{\rho_i},
 \end{equation}\label{equation_higheromega}
-where we use $\rho_i$ to represent the $i$th instance of expiry point on the path $\rho$.
+where we use $\rho_i$ to represent the $i$th instance of expiry point to emerge on the path $\rho$. For example, $\rho_1$ for $(ep_1,r_1)$, $\rho_2$ for $(ep_2,r_2)$.
 \end{definition}
 
 \subsection{Request Function}\label{section_prf}
@@ -191,7 +222,7 @@ Beacuse no path has a length which is less than 0, we consider the prefix reques
 
 \begin{figure}[t]
   \centering
-  \includegraphics[scale=0.32]{graphics/figure_prf.eps}
+  \includegraphics[scale=0.51]{graphics/figure_prf-eps-converted-to.pdf}
   \caption{An example for prefix request function of $prf^{ep_1}_{4,0}(\theta)$ according to $dst_1$ in Figure \ref{figure_dst1}.} 
   \label{figure_prf}
 \end{figure}
@@ -203,21 +234,21 @@ A DST has as many prefix request functions as expiry points in this DST, those p
   \centering
   \begin{subfigure}[t]{3.25in}
     \centering
-    \includegraphics[scale=.45]{graphics/figure_dst2.eps}
+    \includegraphics[scale=.5]{graphics/figure_dst2-eps-converted-to.pdf}
     \caption{An example of $dst_2$ which contains two expiry points and $t_4=<1,3,3>,\ t_5=<3,8,5>$.}\label{figure_dst2}
   \end{subfigure}
   \quad
   \begin{subfigure}[t]{3.25in}
     \centering
-    \includegraphics[scale=.325]{graphics/figure_mrf.eps}
+    \includegraphics[scale=.54]{graphics/figure_mrf-eps-converted-to.pdf}
     \caption{Maximal request funciton of $dst_2$ for $l=5$.}\label{figure_mrf}
   \end{subfigure}
-  \caption{The $dst_2$ contains two expiry points, so there are two prefix request functions $prf^{ep_4}_{5+1,-1}$ and $prf^{ep_5}_{5+1,-1}$ in Figure \ref{figure_mrf}. When $0<\theta\leq2$, $prf^{ep_5}_{5+1,-1}$ makes more computational requirement. But in time interval (2,10], $prf^{ep_4}_{5+1,-1}$ provides the value of the maximal request function.}\label{figure_dst2_mrf}
+  \caption{The $dst_2$ contains two expiry points, so there are two prefix request functions $prf^{ep_4}_{6,-1}$ and $prf^{ep_5}_{6,-1}$ in Figure \ref{figure_mrf}. When $0<\theta\leq2$, $prf^{ep_5}_{6,-1}$ makes more computational requirement. But in time interval (2,10], $prf^{ep_4}_{6,-1}$ provides the value of the maximal request function.}\label{figure_dst2_mrf}
 \end{figure}
 \begin{definition}
 For a DST, the maximal request function $mrf^{dst}_l(\theta)$ calculates the maximum execution time caused by a time interval with length $\theta$.% prefix request function among expiry points in a DST.
 \begin{equation}
-mrf^{dst}_l(\theta)=max\{prf^{ep}_{l+1,-1}(\theta)|ep\in Node\}
+mrf^{dst}_l(\theta)=max\{prf^{ep}_{l+1,-1}(\theta)|ep\in EPs\}
 \end{equation}\label{equation_mrf}
 \end{definition}
 
@@ -228,12 +259,14 @@ Besides considering paths which start with a specific expiry point, we also calc
 \begin{definition}
 For an expiry point $ep$, we use a suffix request function $srf^{ep}_{l}(\theta)$ to calaulate the maximal computational requirement $\Omega_{l+1,-1}(\rho)$ among those paths ending up in $(ep,r)$ but whose length not exceeds $\theta$.
 \begin{equation}
-srf^{ep}_l(\theta)=max\{\Omega_{l+1,-1}(\rho)|\rho\ end\ in\ (ep,r)\ \wedge\ length(\rho)\leq \theta\}.
+\begin{split}
+srf^{ep}_l(\theta)=max\{&\Omega_{l+1,-1}(\rho)|\\&\rho\ is\ ended\ in\ (ep,r)\ \wedge\ length(\rho)\leq \theta\}.
+\end{split}
 \end{equation}\label{equation_srf}
 \end{definition}
 \begin{figure}[t]
   \centering
-  \includegraphics[scale=0.31]{graphics/figure_srf.eps}
+  \includegraphics[scale=0.547]{graphics/figure_srf-eps-converted-to.pdf}
   \caption{Suffix request function of $srf^{ep_3}_{4}(\theta)$ according to $DST_1$ in Figure \ref{figure_dst1}.} 
   \label{figure_srf}
 \end{figure}
@@ -247,7 +280,7 @@ In particular, we use $\Omega_{l+1,-1}(\rho)$ to accumulate the execution time o
 A RTOS (Real-Time Operating System) strictly requires that the finish times of tasks are not allowed to exceed deadline. But in real life, identifying the task which causing time fault actually may be far from obvious. Imagine a task which takes too long to execute, but it does not violate its deadline. The task may block the execution of following tasks. Then the influence will spread throughout the running of tasks, which could makes a normal task misses its deadline. But in a execution of a DST, how to recognize those tasks which could cause or spread influences? 
 In order to find a solution to this problem, we introduce the well-known concept named busy window \cite{DBLP:conf/rtss/Lehoczky90}. 
 
-Busy window for priority level $l$ is a time interval where processor continuously executes tasks with priority $l$ or a higher priority. If we find the maximal busy window for $l$, then we could delimit how long a task could spread influence, i.e., an instance of task with priority $l$ can only be affected by tasks within this boundary. We denote the upper bound of busy window for $l$ by $\sigma_l$.
+Busy window for priority level $l$ is a time interval where processor continuously executes tasks with priority $l$ or a higher priority. If we find the maximal busy window for $l$, then we could delimit how long a task could spread influence, i.e., a job with priority $l$ can only be affected by tasks within this boundary. We denote the upper bound of busy window for $l$ by $\sigma_l$.
 
 \begin{lemma}
 For a DST set $\tau$, we can get the upper bound of busy windows for $l$ by finding the minimum positive number $\theta$ which could satisfy
@@ -293,13 +326,13 @@ Because our schedulability analysis method always focuses on the execution time,
   \centering
   \begin{subfigure}[t]{3.33in}
     \centering
-    \includegraphics[scale=.34]{graphics/figure_combina2.eps}
+    \includegraphics[scale=.34]{graphics/figure_combina2-eps-converted-to.pdf}
     \caption{$ep_3$ expires at 3, the computational requirement which is caused during this time interval is $\omega_{l,r}^{(ep_3,3)}.$}\label{figure_combination1}
   \end{subfigure}
   \quad
   \begin{subfigure}[t]{3.33in}
     \centering
-    \includegraphics[scale=.34]{graphics/figure_combina1.eps}
+    \includegraphics[scale=.34]{graphics/figure_combina1-eps-converted-to.pdf}
     \caption{$ep_3$ expires at 0, $ep_1$ expires at 10. This time interval makes the computational requirement as $\omega_{l,r}^{(ep_3,0)}+\omega_{l,r}^{(ep_1,10)}$.}\label{figure_combination2}
   \end{subfigure}
   \caption{In a time interval with length 10, the computational requirement which is caused during scenario (b) is larger than it which is caused in scenario (a), i.e., the time interval in scenario (b) dominates it in scenario (a).}\label{figure_combination}
@@ -308,7 +341,7 @@ As Figure \ref{figure_combination}, when $ep_3$ expires at the begin, this time 
 \begin{definition}
 For a set of DSTs $\tau=\{DST_1,DST_2,\dots,DST_n\}$, we use $\Phi$ to represent all combinations of expiry points of $\tau$.
 \begin{equation}
-  \Phi(\tau)=Node_1 \times Node_2\times\dots\times Node_n.
+  \Phi(\tau)=EPs_1 \times EPs_2\times\dots\times EPs_n.
 \end{equation}\label{equation_combination}
 \end{definition}
 
@@ -317,7 +350,7 @@ For a set of DSTs $\tau=\{DST_1,DST_2,\dots,DST_n\}$, we use $\Phi$ to represent
 As mentioned above, we analyze the schedulability by checking whether the time interval between activation and deadline of a task is big enough to accommodate the execution time of itself and other tasks which could interrupt it. But according to Section \ref{section_busywindow}, schedule situations before activation also make an impact. Therefore, we extend the time interval towards to before. This brings another question, "how far should we extend the time interval?" This answer has been given in Section \ref{section_busywindow}, i.e., the length we extended should not be more than the boundary of busy windows. Figure \ref{figure_3parts} shows the original time intervals with length $y$ and the extended time intervals with length $x+y$.
 \begin{figure}
   \centering
-  \includegraphics[scale=0.3]{graphics/figure_3parts.eps}
+  \includegraphics[scale=0.39]{graphics/figure_3parts-eps-converted-to.pdf}
   \caption{An illustration of schedulability analysis of task $t$. There are three parts may affect the execution of $t$: A) interruption from $dst$ before task $t$ is activated, B) interruption from $dst$ after task $t$ is activated, C) interruption from other DSTs.}
   \label{figure_3parts}
 \end{figure}
@@ -326,11 +359,13 @@ When several DSTs work concurrently, the influence on the execution of a task co
 
 
 \begin{theorem}\label{theorem_testtask}
-  For a finite set of DSTs $\tau$, if there is a $dst\in\tau$, expiry point $ep\in Node$, task $t\in Act(ep)$. Then task $t$ always meets its deadline if:
+  For a finite set of DSTs $\tau$, if there is a $dst\in\tau$, expiry point $ep\in EPs$, task $t\in Act(ep)$. Then task $t$ always meets its deadline if:
    \begin{equation}\begin{split}
-      &\forall \varepsilon\in\Phi(\tau-\{dst\}),x\in[0,\sigma_l]:\exists y\in[e(lt),d(lt)]:\\
-      srf^{ep}_{l(t)}(x)+&prf^{ep}_{l(t),-1}(y)-\omega_{l(t),-1}^{(ep,x)}
-      +\sum\limits_{ep_i\in \varepsilon}prf^{ep_i}_{l(t),x}(x+y)\leq x+y.
+      \forall \varepsilon\in\Phi(\tau-\{dst\}),x\in[0,&\sigma_l]:\exists y\in[e(lt),d(lt)]:
+      \\
+      srf^{ep}_{l(t)}(x)+prf^{ep}_{l(t),-1}(y)-&\omega_{l(t),-1}^{(ep,x)}
+      \\
+      &+\sum\limits_{ep_i\in \varepsilon}prf^{ep_i}_{l(t),x}(x+y)\leq x+y.
     \end{split}\label{equation_verification}\end{equation}
 \end{theorem}
 \begin{proof}
@@ -365,8 +400,11 @@ When a set of DSTs $\tau=\{dst_1,dst_2, \dots dst_n\}$ is given, the process of 
 
   \item: Verifying whether the equation below could be satisfied, where $lep$ is the expiry point which could activate $lt$:%Verify schedulability in single combination
   \begin{equation}\begin{split}
-      &\forall x\in[0,\sigma_l]:\exists y\in[e(lt),d(lt)]:\\
-      srf^{lep}_{l(lt)}(x)+&prf^{lep}_{l(lt),-1}(y)-\omega^{(lep,x)}_{l(lt),-1}+\sum\limits_{ep_i\in\varepsilon}prf^{ep_i}_{l(lt),x}(x+y)\leq x+y
+      \forall x\in[0,\sigma_l]:\exists y\in[e(lt),d&(lt)]:
+      \\
+      srf^{lep}_{l(lt)}(x)+prf^{lep}_{l(lt),-1}(y)&-\omega^{(lep,x)}_{l(lt),-1}
+      \\
+      \sum\limits_{ep_i\in\varepsilon}&prf^{ep_i}_{l(lt),x}(x+y)\leq x+y
     \end{split}\label{equation_verify}\end{equation}
   
   \item: If Equation \ref{equation_verify} is satisfied, then we pick other $\varepsilon\in\Phi(other\_st)$ and repeat from step 4, until every elements in $\Phi(other\_st)$ have been picked, then we move to the next step. Instead, if there exist a situation makes Equation \ref{equation_verify} false, we declare this set of DSTs is non-schedulable.%Verify schedulability in all combination
@@ -386,7 +424,7 @@ We summarize those steps and give two primary algorithms as below. We assume $\t
     \IF{$task\_set=\varnothing$}
     \STATE \Return schedulable
     \ELSE \STATE $lt \leftarrow GET\_LOWEST\_PRIORITY(task\_set)$\\$\qquad\qquad\qquad\backslash\backslash task\_set\ is\ a\ global\ variable$
-    \IF{$pass=TASK\_SCHEDULABILITY\_ANALYSIS(lt)$}
+    \IF{$pass=TASK\_ANALYSIS(lt)$}
     \STATE $task\_set\leftarrow task\_set-lt$
     \STATE \Return SCHEDULABILITY()
     \ELSE
@@ -399,7 +437,7 @@ We summarize those steps and give two primary algorithms as below. We assume $\t
 At the begin of Algorithm \ref{algorithm_schedulability}, we implement line 1 and 2 to check whether the algorithm should terminate. Line 4 is corresponding to step 2 which aims to get the task with the lowest priority and divide $\tau$. We conceal the details of this function. The function $TASK\_VERIFY$ verifies whether a task always meets its deadline. If this function returns $pass$, then we will remove this task from $task\_set$ and continue run this algorithm. $task\_set$ is empty means all tasks have been confirmed to always meet its deadline. Therefore the set of DSTs is schedulable. Instead, if the return result of $TASK\_VERIFY$ is $not-pass$, that means $\tau$ is non-schedulable. The detail of $TASK\_VERIFY$ is shown in Algorithm \ref{algorithm_taskverify}.
 
 \begin{algorithm}
-  \caption{TASK\_SCHEDULABILITY\_ANALYSIS}
+  \caption{TASK\_ANALYSIS}
   \label{algorithm_taskverify}
   \begin{algorithmic}[1]
     \REQUIRE $lt$
@@ -426,20 +464,25 @@ Algorithm \ref{algorithm_taskverify} aims to verify whether task $lt$ always mee
 \subsection{Demonstration}\label{section_demonstration}
 As an example for this method, we construct a set of DSTs by uniting $dst_1$ in Figure \ref{figure_dst1}, $dst_2$ in Figure \ref{figure_dst2} and one more DST $dst_3$ in Figure \ref{figure_dst3}. In this case, the set of DSTs $\tau =\{dst_1,dst_2,dst_3\}$. Then we get the set of tasks, denote as $task\_set$: 
 \[\begin{split}
-task\_set=Tasks_1\cup Tasks_2\cup Tasks_3=\{t_1,t_2,t_3,t_4,t_5,t_6,t_7\}.
+task\_set=Tasks_1\cup Tasks_2\cup &Tasks_3=
+\\
+&\{t_1,t_2,t_3,t_4,t_5,t_6,t_7\}.
 \end{split}\]
 
 \begin{figure}
   \centering
-  \includegraphics[scale=.4]{graphics/figure_dst3.eps}
+  \includegraphics[scale=.5]{graphics/figure_dst3-eps-converted-to.pdf}
   \caption{An example of DST $dst_3$, where $t_6=<2,11,6>,\ t_7=<1,3,4>$.} 
   \label{figure_dst3}
 \end{figure}
 
 Picking a task in $task\_set$ with the lowest priority, denoting as $lt$, assuming we choose $t_3$. Task $t_3$ divides $\tau$ into two parts: $dst_1$ and $\{dst_2,dst_3\}$, which are denoted by $ldst$ and $other\_dsts$ respectively. Then, we get the upper bound of busy windows for $l(t_3)$ by Equation \ref{equation_busywindow} and denote it as $\sigma_l$ = 13. The next step, we use $\Phi(\tau)$ to get all combinations of expiry points in $other\_dsts$ as $\{\{ep_4,ep_6\},\{ep_5,ep_6\}\}$. Assuming we pick $\varepsilon=\{ep_4,ep_6\}$ firstly. Then we build path $\rho_1=[(ep_4,0),(ep_5,3),(ep_4,14)\dots]$ for $dst_2$ and $\rho_2=[(ep_6,0),(ep_6,20),(ep_6,40),\dots]$ for $dst_3$. According to those paths, we set a series of instances of tasks like: $<1,3,3,0>$ and $<1,3,3,14>$ of $t_4$, $<2,11,6,20>$ of $t_6$, $<1,3,4,20>$ of $t_7$ and so on. Then we verify whether a $y\in(0,d(t_3)]$ exists for any $x\in[0,\sigma_l]$ to satisfy Equation \ref{equation_verify}, i.e.,
 \[\begin{split}
-&\forall x\in[0,13]:\exists y\in[2,9]:\\
-srf^{ep_3}_6(x)+&prf^{ep_3}_{6,-1}(y)-\omega^{(ep_3,x)}_{6,-1}+\sum\limits_{ep_i\in \varepsilon}prf^{ep_i}_{6,x}(x+y)\leq x+y.
+\forall x\in[0,13]:\exists y\in[2,9]:&
+\\
+srf^{ep_3}_6(x)+prf^{ep_3}_{6,-1}(y)-&\omega^{(ep_3,x)}_{6,-1}+
+\\
+&\sum\limits_{ep_i\in \varepsilon}prf^{ep_i}_{6,x}(x+y)\leq x+y.
 \end{split}\]
 
 
@@ -479,7 +522,7 @@ After generating schedule tables randomly, we transform them into DSTs and consi
 
 \subsection{Consistency Analysis} 
 %We introduce a new feature utilization $\eta$ to assist our comparison. For a schedule table $st$ 
-%\[\eta=\frac{\sum\limits_{ep_i\in Node(st)}\sum\limits_{t_i\in Act(ep_i)}e(t_i)}{\delta}\] 
+%\[\eta=\frac{\sum\limits_{ep_i\in EPs(st)}\sum\limits_{t_i\in Act(ep_i)}e(t_i)}{\delta}\] 
 %i.e., ratio of sum of all tasks' execution time in st to duraiton of st.
 The experiment of comparison shows that the result of our method all compared exactly to an actual running situation on the implemented AUTOSAR. Several examples and their result are synthesized in Table \ref{table_compare}. We use $task_{sum}$ to represent the amount of tasks. %($\sum\eta$ represent the sum of utilization of all schedule tables, it's obviously not schedulable when this value exceed 100).
 
@@ -516,14 +559,9 @@ Then we modify any tasks could not pass validation. Finally, we get an amended e
 %\end{figure}
 
 \section{Conclusion}
-In this paper, we have abstracted the behaviors of schedule tables as formal models and proposed an algorithm based on the models. Our algorithm is to analyze the schedulability of AUTOSAR OS by travelling all the possible offsets between schedule tables. Moreover, we conduct an experiment, which runs a set of testbench on an industrial AUTOSAR OS and our algorithm respectively to check the effectiveness of our method. Through the comparison result, we believe that our method could perform well in designing schedule tables.
- 
-This work has gotten a promising result in analyzing AUTOSAR OS on uniprocessor. Since AUTOSAR specification has introduced multicore operating systems, we are considering to work on analyze schedulability of them. Besides, schedulability analysis for extended tasks, which are allowed to synchronize through setting and waiting events, is another interesting topic we would like to pursue.
+In this paper, we have abstracted the behaviors of schedule tables as formal models and proposed an algorithm based on this models. Our algorithm analyzes the schedulability of schedule tables by covering all the possible schedule situations. Moreover, we conduct an experiment, which runs a set of schedule tables on an industrial AUTOSAR OS and our algorithm respectively to check the effectiveness of our method. Through the comparison result, we believe that our method could perform well in designing schedule tables.
 
-
-
-
-
+This work has gotten a promising result in analyzing schedule tables on uniprocessor. Since AUTOSAR specification has introduced multicore operating systems, we are considering to analyze schedulability of them on multiprocessor. Besides, schedulability analysis for extended tasks, which are allowed to synchronize through setting and waiting events, is another interesting topic we would like to pursue.
 
 \bibliographystyle{unsrt}
 \bibliography{myreference}
